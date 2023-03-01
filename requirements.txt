@@ -1,0 +1,5 @@
+streamlit
+numpy
+streamlit_webrtc
+matplotlib
+tensorflow
