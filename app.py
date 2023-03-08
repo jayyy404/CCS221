@@ -1,6 +1,7 @@
 import streamlit as st
 import numpy as np
 import matplotlib as plt
+import cv2
 
 st.title ("Hello World")
 
