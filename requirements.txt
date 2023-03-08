@@ -3,4 +3,4 @@ numpy
 streamlit_webrtc
 matplotlib
 tensorflow
-cv2
+opencv-python-headless
