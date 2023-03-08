@@ -4,4 +4,4 @@ streamlit_webrtc
 matplotlib
 tensorflow
 opencv-python-headless
-Delaunay
+scipy
