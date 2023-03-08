@@ -79,11 +79,11 @@ def main():
     #    imgs = cv2.imread(img_path)
     #    imgs = cv2.cvtColor(imgs, cv2.COLOR_BGR2RGB)
         
-    #    translated_imgs = translation_img(imgs)
-    #    rotated_imgs = rotation_img(imgs)
-    #    scaled_imgs = scaling_img(imgs)                     #calling the functions above to be executed in main function
-    #    reflected_imgs = reflection_img(imgs)
-    #    sheared_imgs = shear_img(imgs)
+    translated_imgs = translation_img(imgs)
+    rotated_imgs = rotation_img(imgs)
+    scaled_imgs = scaling_img(imgs)                     #calling the functions above to be executed in main function
+    reflected_imgs = reflection_img(imgs)
+    sheared_imgs = shear_img(imgs)
 
 
     st.image([img, translated_img, rotated_img, scaled_img, reflected_img, sheared_img],
