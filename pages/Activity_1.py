@@ -5,6 +5,7 @@
 
 from pickle import TRUE
 import matplotlib.pyplot as plt
+import streamlit as st
 
 plt.title("DDA Line Algorithm")
 plt.xlabel("X Axis")
