@@ -7,6 +7,8 @@ import numpy as np
 import cv2 
 import matplotlib.pyplot as plt
 import streamlit as st
+import pandas as pd
+from io import StringIO
 
    
 
@@ -72,6 +74,23 @@ def shear_img(img):
 def main():
     
     img = read_image("flower.jpg")
+    uploaded_file = st.file_uploader("flower.jpg")
+if uploaded_file is not None:
+    # To read file as bytes:
+    bytes_data = uploaded_file.getvalue()
+    st.write(bytes_data)
+
+    # To convert to a string based IO:
+    stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
+    st.write(stringio)
+
+    # To read file as string:
+    string_data = stringio.read()
+    st.write(string_data)
+
+    # Can be used wherever a "file-like" object is accepted:
+    dataframe = pd.read_csv(uploaded_file)
+    st.write(dataframe)
 
     translated_img_ = translation_img(img)
     rotated_img_ = rotation_img(img)
