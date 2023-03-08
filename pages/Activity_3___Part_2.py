@@ -69,18 +69,19 @@ def main():
         nparr = np.frombuffer(bytes_data, np.uint8)
         img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
     else:
+        img = read_image("flower.jpg")
         
-        for i in range(1 ,6):
+    #for i in range(1 ,6):
         
-            img_path = f"pic{i}.jpg"
-            imgs = cv2.imread(img_path)
-            imgs = cv2.cvtColor(imgs, cv2.COLOR_BGR2RGB)
+    #    img_path = f"pic{i}.jpg"
+    #    imgs = cv2.imread(img_path)
+    #    imgs = cv2.cvtColor(imgs, cv2.COLOR_BGR2RGB)
         
-            translated_imgs = translation_img(imgs)
-            rotated_imgs = rotation_img(imgs)
-            scaled_imgs = scaling_img(imgs)                     #calling the functions above to be executed in main function
-            reflected_imgs = reflection_img(imgs)
-            sheared_imgs = shear_img(imgs)
+    #    translated_imgs = translation_img(imgs)
+    #    rotated_imgs = rotation_img(imgs)
+    #    scaled_imgs = scaling_img(imgs)                     #calling the functions above to be executed in main function
+    #    reflected_imgs = reflection_img(imgs)
+    #    sheared_imgs = shear_img(imgs)
 
 #Sets the images on axis with the figure
         fig, axs = plt.subplots(2, 3, figsize=(12, 8))
