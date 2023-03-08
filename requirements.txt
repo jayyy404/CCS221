@@ -3,3 +3,4 @@ numpy
 streamlit_webrtc
 matplotlib
 tensorflow
+cv2
