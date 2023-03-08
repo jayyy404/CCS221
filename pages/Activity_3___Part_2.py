@@ -70,6 +70,8 @@ def main():
         img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
     else:
         img = read_image("flower.jpg")
+        img = cv2.imread(img_path)
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         
     #for i in range(1 ,6):
         
@@ -83,35 +85,39 @@ def main():
     #    reflected_imgs = reflection_img(imgs)
     #    sheared_imgs = shear_img(imgs)
 
+
+    st.image([img, translated_img, rotated_img, scaled_img, reflected_img, sheared_img],
+             caption=["Original Image", "Translated Image", "Rotated Image", "Scaled Image", "Reflected Image", "Sheared Image"],
+             width=200)
 #Sets the images on axis with the figure
-        fig, axs = plt.subplots(2, 3, figsize=(12, 8))
-        fig = plt.gcf()
-        fig.canvas.manager.set_window_title(f"Picture Number {i}")
-        axs[0, 0].imshow(imgs)
-        axs[0, 0].set_title("Original Image")
-        axs[0, 0].axis("off")
+      #  fig, axs = plt.subplots(2, 3, figsize=(12, 8))
+       # fig = plt.gcf()
+        #fig.canvas.manager.set_window_title(f"Picture Number {i}")
+        #axs[0, 0].imshow(imgs)
+        #axs[0, 0].set_title("Original Image")
+        #axs[0, 0].axis("off")
 
-        axs[0, 1].imshow(translated_imgs)
-        axs[0, 1].set_title("Translated Image")
-        axs[0, 1].axis("off")
+        #axs[0, 1].imshow(translated_imgs)
+        #axs[0, 1].set_title("Translated Image")
+        #axs[0, 1].axis("off")
 
-        axs[0, 2].imshow(rotated_imgs)
-        axs[0, 2].set_title("Rotated Image")
-        axs[0, 2].axis("off")
+        #axs[0, 2].imshow(rotated_imgs)
+        #axs[0, 2].set_title("Rotated Image")
+        #axs[0, 2].axis("off")
 
-        axs[1, 0].imshow(scaled_imgs)
-        axs[1, 0].set_title("Scaled Image")
-        axs[1, 0].axis("off")
+        #axs[1, 0].imshow(scaled_imgs)
+        #axs[1, 0].set_title("Scaled Image")
+        #axs[1, 0].axis("off")
 
-        axs[1, 1].imshow(reflected_imgs)
-        axs[1, 1].set_title("Reflected Image")
-        axs[1, 1].axis("off")
+        #axs[1, 1].imshow(reflected_imgs)
+        #axs[1, 1].set_title("Reflected Image")
+        #axs[1, 1].axis("off")
 
-        axs[1, 2].imshow(sheared_imgs)
-        axs[1, 2].set_title("Sheared Image")
-        axs[1, 2].axis("off")
+        #axs[1, 2].imshow(sheared_imgs)
+        #axs[1, 2].set_title("Sheared Image")
+        #axs[1, 2].axis("off")
 
-        plt.show()
+        #plt.show()
 
 main()
 
