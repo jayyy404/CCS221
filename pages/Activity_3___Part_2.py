@@ -78,8 +78,8 @@ def main():
     #for i in range(1 ,6):
         
     #    img_path = f"pic{i}.jpg"
-    #    imgs = cv2.imread(img_path)
-    #    imgs = cv2.cvtColor(imgs, cv2.COLOR_BGR2RGB)
+    imgs = cv2.imread(img_path)
+    imgs = cv2.cvtColor(imgs, cv2.COLOR_BGR2RGB)
         
     translated_img = translation_img(imgs)
     rotated_img = rotation_img(imgs)
@@ -91,6 +91,15 @@ def main():
     st.image([img, translated_img, rotated_img, scaled_img, reflected_img, sheared_img],
              caption=["Original Image", "Translated Image", "Rotated Image", "Scaled Image", "Reflected Image", "Sheared Image"],
              width=200)
+    
+    
+    
+    
+    
+    
+    
+    
+    
 #Sets the images on axis with the figure
       #  fig, axs = plt.subplots(2, 3, figsize=(12, 8))
        # fig = plt.gcf()
