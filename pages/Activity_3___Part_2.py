@@ -61,7 +61,6 @@ def shear_img(imgs):
 
 def main():
 
-#for loop to keep on reading 5 images and applying the changes
     uploaded_file = st.file_uploader("Choose an image", type=["jpg", "jpeg", "png"])
     if uploaded_file is not None:
         # read image
@@ -69,7 +68,7 @@ def main():
         nparr = np.frombuffer(bytes_data, np.uint8)
         img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
     else:
-        img = read_image("flower.jpg")
+        img_path = "flower.jpg"
         img = cv2.imread(img_path)
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         
