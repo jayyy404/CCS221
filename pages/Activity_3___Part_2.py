@@ -59,6 +59,10 @@ def shear_img(imgs):
 
     return sheared_img
 
+
+
+
+
 def main():
 
     uploaded_file = st.file_uploader("Choose an image", type=["jpg", "jpeg", "png"])
@@ -70,7 +74,6 @@ def main():
     else:
         img_path = "flower.jpg"
         img = cv2.imread(img_path)
-        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         
     #for i in range(1 ,6):
         
