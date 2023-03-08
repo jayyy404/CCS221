@@ -72,56 +72,43 @@ def shear_img(img):
     return sheared_img_x
 
 def main():
-    
-    img = read_image("flower.jpg")
-    uploaded_file = st.file_uploader("flower.jpg")
+    st.title("Image Transformations")
+
+    # file upload
+    uploaded_file = st.file_uploader("Choose an image", type=["jpg", "jpeg", "png"])
     if uploaded_file is not None:
-    # To read file as bytes:
-        bytes_data = uploaded_file.getvalue()
-        st.write(bytes_data)
+        # read image
+        bytes_data = uploaded_file.read()
+        nparr = np.frombuffer(bytes_data, np.uint8)
+        img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+    else:
+        img = read_image("flower.jpg")
 
-    # To convert to a string based IO:
-        stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
-        st.write(stringio)
-
-    # To read file as string:
-        string_data = stringio.read()
-        st.write(string_data)
-
-    # Can be used wherever a "file-like" object is accepted:
-        dataframe = pd.read_csv(uploaded_file)
-        st.write(dataframe)
-
+    # perform transformations
     translated_img_ = translation_img(img)
     rotated_img_ = rotation_img(img)
     scaled_img_ = scaling_img(img)
     reflected_img_ = reflection_img(img)
     sheared_img_x = shear_img(img)
 
-    fig, axs = plt.subplots(2, 3, figsize=(12, 8))
-    axs[0, 0].imshow(img)
-    axs[0, 0].set_title("Original Image")
-    axs[0, 0].axis("off")
+    # show images
+    st.subheader("Original Image")
+    st.image(img)
 
-    axs[0, 1].imshow(translated_img_)
-    axs[0, 1].set_title("Translated Image")
-    axs[0, 1].axis("off")
+    st.subheader("Translated Image")
+    st.image(translated_img_)
 
-    axs[0, 2].imshow(rotated_img_)
-    axs[0, 2].set_title("Rotated Image")
-    axs[0, 2].axis("off")
+    st.subheader("Rotated Image")
+    st.image(rotated_img_)
 
-    axs[1, 0].imshow(scaled_img_)
-    axs[1, 0].set_title("Scaled Image")
-    axs[1, 0].axis("off")
+    st.subheader("Scaled Image")
+    st.image(scaled_img_)
 
-    axs[1, 1].imshow(reflected_img_)
-    axs[1, 1].set_title("Reflected Image")
-    axs[1, 1].axis("off")
+    st.subheader("Reflected Image")
+    st.image(reflected_img_)
 
-    axs[1, 2].imshow(sheared_img_x)
-    axs[1, 2].set_title("Sheared Image")
-    axs[1, 2].axis("off")
+    st.subheader("Sheared Image")
+    st.image(sheared_img_x)
 
     plt.show()
     
