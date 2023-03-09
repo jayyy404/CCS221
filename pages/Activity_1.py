@@ -88,31 +88,43 @@ def bres_line(x1,y1,x2,y2):
     st.pyplot()
 
 
-#Brasenham Line wirh Midpoint
-plt.title("Braseham Line/Midpoint")
+# Brasenham Line with Midpoint
+plt.title("Brasenham Line/Midpoint")
 plt.xlabel("X Axis")
 plt.ylabel("Y Axis")
-def bres_line_mpoint(x1,y1,x2,y2):
-    x,y = x1, y1
-    dx = abs(x2 - x1) 
-    dy = abs(y2 - y1) 
-    slope = dy/float(dx)
+def bres_line_mpoint(x1, y1, x2, y2):
+    dx = abs(x2 - x1)
+    dy = abs(y2 - y1)
+    slope = dy / float(dx)
 
     if slope > 1:
         dx, dy = dy, dx
-        x, y = y, x
         x1, y1 = y1, x1
         x2, y2 = y2, x2
 
+    x, y = x1, y1
     p = 2 * dy - dx
     xcoords = [x]
     ycoords = [y]
 
-    xm = (x1 + x2)/2
-    ym = (y1 + y2)/2
+    for i in range(dx):
+        if p > 0:
+            y = y + 1 if y < y2 else y - 1
+            p = p + 2 * (dy - dx)
+        else:
+            p = p + 2 * dy 
+        x = x + 1 if x < x2 else x - 1
+        xcoords.append(x)
+        ycoords.append(y)
 
-st.write("\nX midpoint: ",xcoords, "\nY midpoint: ",ycoords)
-plt.plot(xcoords)
+    xm = (x1 + x2) / 2
+    ym = (y1 + y2) / 2
+
+    st.write("\nX midpoint: ", xm, "\nY midpoint: ", ym)
+    plt.plot(xcoords, ycoords, color='blue')
+    plt.plot(xm, ym, marker='o', markerfacecolor='green')
+    st.pyplot()
+
 
 
 
