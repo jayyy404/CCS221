@@ -1,3 +1,7 @@
+#Group 4
+#Members : John Paul Sapasap
+         # Jed Andrew Del Rosario
+         # Marc Joshua Escueta
 import numpy as np
 import matplotlib.pyplot as plt
 import tensorflow as tf
