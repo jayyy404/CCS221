@@ -74,12 +74,13 @@ def main():
         nparr = np.frombuffer(bytes_data, np.uint8)
         img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
     else:
+        img_path = "flower.jpg"
         imgs = cv2.imread(img_path)
         imgs = cv2.cvtColor(imgs, cv2.COLOR_BGR2RGB)
         
     #for i in range(1 ,6):
         
-    #    img_path = f"pic{i}.jpg"
+    #    
     
         
     translated_img = translation_img(imgs)
