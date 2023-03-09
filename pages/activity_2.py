@@ -27,13 +27,16 @@ def change(x, y, color, direction):
     img = plt.imshow(two_d_arr, interpolation='none', cmap='Pastel2')
     img.set_clim([0,50])
     plt.colorbar()
-    plt.show()
+    return img
 
 def main():
-    x_coordinates = int(input("X coordinates:"))
-    y_coordinates = int(input("Y coordinates:"))
-    colorvalue = int(input("Select a Color Value (1-50)"))
-    direction = input("Direction (1 for up, 2 for down, 3 for left, or 4 for right):")
-    change(x_coordinates, y_coordinates, colorvalue, direction)
+    x_coordinates = st.number_input("X coordinates:", min_value=0, max_value=2, step=1)
+    y_coordinates = st.number_input("Y coordinates:", min_value=0, max_value=2, step=1)
+    colorvalue = st.selectbox("Select a Color Value (1-50)", options=list(range(1, 51)))
+    direction = st.selectbox("Direction", options=["1 for up", "2 for down", "3 for left", "4 for right"])
+    direction_mapping = {"1 for up": "1", "2 for down": "2", "3 for left": "3", "4 for right": "4"}
+    direction_code = direction_mapping[direction]
+    img = change(x_coordinates, y_coordinates, colorvalue, direction_code)
+    st.pyplot()
 
 main()
