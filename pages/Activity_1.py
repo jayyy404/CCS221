@@ -25,7 +25,7 @@ def DDALine(x1, y1, x2, y2, color):
         x1 += Xinc
         y1 += Yinc
 
-    plt.show()
+    st.pyplot()
 
 
 
@@ -34,17 +34,15 @@ plt.title("DDA line/ Midpoints")
 plt.xlabel("X Axis")
 plt.ylabel("Y Axis")
 def DDALine_mpoints(x1, y1, x2, y2, color):
-    dx = x2 - x1
-    dy = y2 - y1
-
     steps = abs(dx) if abs(dx) > abs(dy) else abs(dy)
 
     Xinc = float(dx / steps)
     Yinc = float(dy / steps)
 
     xm = (x1 + x2)/2
-    ym = (y1 + y2)/2                                            #These line of codes are the midpoints formula
-    print ("\nX midpoint: ",xm, "\nY midpoint: ",ym)
+    ym = (y1 + y2)/2
+
+    st.write("\nX midpoint: ",xm, "\nY midpoint: ",ym)
     plt.plot(xm,ym, marker = 'o', markerfacecolor = "green")
 
     for i in range(0, int(steps + 1)):
@@ -52,7 +50,7 @@ def DDALine_mpoints(x1, y1, x2, y2, color):
         x1 += Xinc
         y1 += Yinc
 
-    plt.show()                                                  #this let the program show a graph for the users input
+    st.pyplot()                                      #this let the program show a graph for the users input
 
 #Brasenham lINE
 plt.title("Braseham Line")
@@ -77,16 +75,18 @@ def bres_line(x1,y1,x2,y2):
     for i in range(2, dx):
         if p > 0:
             y = y + 1 if y < y2 else y - 1
+
             p = p + 2 * (dy - dx)
         else:
             p = p + 2 * dy 
 
-        x = x + 1 if x < x2 else x - 1
-        xcoords.append(x)
-        ycoords.append(y)
+    x = x + 1 if x < x2 else x - 1
+    xcoords.append(x)
+    ycoords.append(y)
 
     plt.plot(xcoords, ycoords)
-    plt.show()
+    st.pyplot()
+
 
 #Brasenham Line wirh Midpoint
 plt.title("Braseham Line/Midpoint")
@@ -109,73 +109,12 @@ def bres_line_mpoint(x1,y1,x2,y2):
     ycoords = [y]
 
     xm = (x1 + x2)/2
-    ym = (y1 + y2)/2                                            #These line of codes are the midpoints formula
-    print ("\nX midpoint: ",xm, "\nY midpoint: ",ym)
-    plt.plot(xm,ym, marker = 'o', markerfacecolor = "green")
+    ym = (y1 + y2)/2
 
-    for i in range(2, dx):
-        if p > 0:
-            y = y + 1 if y < y2 else y - 1
-
-            p = p + 2 * (dy - dx)
-        else:
-            p = p + 2 * dy 
-
-        x = x + 1 if x < x2 else x - 1
-        xcoords.append(x)
-        ycoords.append(y)
-
-    plt.plot(xcoords, ycoords)
-    plt.show()
+st.write("\nX midpoint: ",xm, "\nY midpoint: ",ym)
+plt.plot(xm)
 
 
 
-def main():
-
- #Gets User input or their pereference 
-
-    print ("\t\t\tWELCOME TO GROUP 4's PROGRAM"
-           "\n\nWhat do you want to show?\n"
-           "\n\t\tEnter 1 for DDA Line\n"
-           "\t\t2 for DDA Line with midpoints\n"
-           "\t\t3 for Brasenham Line\n"
-           "\t\t4 for Brasenham Line with midpoints :")
-    choice = int (input ("\nYour choice :"))
-    print ("")  
-    if choice == 1:
-        x = int(input("Enter the value for X1: "))
-        y = int(input("Enter the value for Y1: "))
-        xEnd = int(input("Enter the value for X2: "))
-        yEnd = int(input("Enter the value for Y2: "))
-        color = "r."
-        DDALine(x, y, xEnd, yEnd, color)
-
-    elif choice == 2:
-        x = int(input("Enter the value for X1: "))
-        y = int(input("Enter the value for Y1: "))
-        xEnd = int(input("Enter the value for X2: "))
-        yEnd = int(input("Enter the value for Y2: "))
-        color = "r."
-        DDALine_mpoints(x, y, xEnd, yEnd, color)
-
-    elif choice == 3:
-        x1 = int(input("Enter starting point of x: "))
-        y1 = int(input("Enter starting point of y: "))
-        x2 = int(input("Enter end point of x: "))
-        y2 = int(input("Enter end point of y: "))  
-        bres_line(x1,y1,x2,y2)
-
-    elif choice == 4:
-        x1 = int(input("Enter starting point of x: "))
-        y1 = int(input("Enter starting point of y: "))
-        x2 = int(input("Enter end point of x: "))
-        y2 = int(input("Enter end point of y: "))  
-        bres_line_mpoint(x1,y1,x2,y2)
-
-    else :
-        print ("Thank you")
-
-if TRUE:
-    main()
 
 
