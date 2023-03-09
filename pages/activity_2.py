@@ -37,6 +37,7 @@ def main():
     direction_mapping = {"1 for up": "1", "2 for down": "2", "3 for left": "3", "4 for right": "4"}
     direction_code = direction_mapping[direction]
     img = change(x_coordinates, y_coordinates, colorvalue, direction_code)
+    st.set_option('deprecation.showPyplotGlobalUse', False)
     st.pyplot()
 
 main()
