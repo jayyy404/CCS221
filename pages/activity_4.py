@@ -49,9 +49,9 @@ counter = 1
 fig1 = plt_basic_object_(init_pyramid, counter)
 st.pyplot(fig1)
 
-x = int(input("Enter for x: "))
-y = int(input("Enter for y: "))
-z = int(input("Enter for z: "))
+x = st.slider("Enter for x:", -10, 10, step=1)
+y = st.slider("Enter for y:", -10, 10, step=1)
+z = st.slider("Enter for z:", -10, 10, step=1)
 
 translation = tf.constant([x, y, z], dtype=tf.float32)
 
@@ -82,6 +82,8 @@ counter = 2
 fig3 = plt_basic_object_(init_heart, counter)
 st.pyplot(fig3)
 
-x = int(input("Enter for x: "))
-y = int(input("Enter for y: "))
-z = int(input("Enter for z: "))
+x = st.slider("Enter for x:", -10, 10, step=1)
+y = st.slider("Enter for y:", -10, 10, step=1)
+z = st.slider("Enter for z:", -10, 10, step=1)
+
+
