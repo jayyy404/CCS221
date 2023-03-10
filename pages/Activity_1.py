@@ -12,6 +12,8 @@ def DDALine(x1, y1, x2, y2, color):
     steps = abs(dx) if abs(dx) > abs(dy) else abs(dy)
     Xinc = float(dx / steps)
     Yinc = float(dy / steps)
+    
+    fig, ax = plt.subplots()
     for i in range(0, int(steps + 1)):
         plt.plot(int(x1), int(y1), color)
         x1 += Xinc
@@ -28,7 +30,6 @@ def DDALine(x1, y1, x2, y2, color):
     color = st.selectbox('Select a color:', ['red', 'green', 'blue'])
 
 # Draw the line
-    fig, ax = plt.subplots()
     DDALine(x1, y1, x2, y2, color)
     ax.set_aspect('equal', adjustable='box')
     st.pyplot(fig)
@@ -42,6 +43,7 @@ def DDALine_mpoints(x1, y1, x2, y2, color):
     xm = (x1 + x2)/2
     ym = (y1 + y2)/2
     st.pyplot(xm,ym, marker = 'o', markerfacecolor = "green")
+    fig, ax = plt.subplots()
     for i in range(0, int(steps + 1)):
         plt.plot(int(x1), int(y1), color)
         x1 += Xinc
@@ -56,9 +58,6 @@ def DDALine_mpoints(x1, y1, x2, y2, color):
     x2 = st.number_input('Enter the X coordinate of the ending point:')
     y2 = st.number_input('Enter the Y coordinate of the ending point:')
     color = st.selectbox('Select a color:', ['red', 'green', 'blue'])
-
-
-    fig, ax = plt.subplots()
     DDALine(x1, y1, x2, y2, color)
     ax.set_aspect('equal', adjustable='box')
     st.pyplot(fig)
@@ -76,6 +75,7 @@ def bres_line(x1,y1,x2,y2):
     p = 2 * dy - dx
     xcoords = [x]
     ycoords = [y]
+    fig, ax = plt.subplots()
     for i in range(2, dx):
         if p > 0:
             y = y + 1 if y < y2 else y - 1
@@ -97,8 +97,6 @@ def bres_line(x1,y1,x2,y2):
     y2 = st.number_input('Enter the Y coordinate of the ending point:')
     color = st.selectbox('Select a color:', ['red', 'green', 'blue'])
 
-
-    fig, ax = plt.subplots()
     DDALine(x1, y1, x2, y2, color)
     ax.set_aspect('equal', adjustable='box')
     st.pyplot(fig)
@@ -135,6 +133,7 @@ def bres_line_mpoint(x1,y1,x2,y2):
     DDALine(x1, y1, x2, y2, color)
     ax.set_aspect('equal', adjustable='box')
     st.pyplot(fig)
+
 
 
 
