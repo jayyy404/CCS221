@@ -54,24 +54,24 @@ def main():
         img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
     else:
         img = read_image("flower.jpg")
-        st.image(img, use_column_width=True, caption="Original Image")
+    st.image(img, use_column_width=True, caption="Original Image")
         
         
 
-        translated_img = translation_img(imgs)
-        st.image(translated_img, use_column_width=True, caption="Translated Image")
+    translated_img = translation_img(imgs)
+    st.image(translated_img, use_column_width=True, caption="Translated Image")
 
-        rotated_imgs = rotation_img(imgs)
-        st.image(rotated_imgs, use_column_width=True, caption="Rotated Image")
+    rotated_imgs = rotation_img(imgs)
+    st.image(rotated_imgs, use_column_width=True, caption="Rotated Image")
 
-        scaled_img = scaling_img(imgs)
-        st.image(scaled_img, use_column_width=True, caption="Scaled Image")
+    scaled_img = scaling_img(imgs)
+    st.image(scaled_img, use_column_width=True, caption="Scaled Image")
 
-        reflected_img = reflection_img(imgs)
-        st.image(reflected_img, use_column_width=True, caption="Reflected Image")
+    reflected_img = reflection_img(imgs)
+    st.image(reflected_img, use_column_width=True, caption="Reflected Image")
 
-        sheared_img = shear_img(imgs)
-        st.image(sheared_img, use_column_width=True, caption="Sheared Image")
+    sheared_img = shear_img(imgs)
+    st.image(sheared_img, use_column_width=True, caption="Sheared Image")
 
 
     
