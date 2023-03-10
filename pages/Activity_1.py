@@ -76,5 +76,4 @@ def bres_line_mpoint(x1,y1,x2,y2):
     st.pyplot(plt.plot(xcoords, ycoords), plt.plot(xm,ym, marker = 'o', markerfacecolor = "green"))
     return plt
 
-st.title
 
