@@ -86,4 +86,42 @@ x = st.slider("Enter for x:", -10, 10, step=1)
 y = st.slider("Enter for y:", -10, 10, step=1)
 z = st.slider("Enter for z:", -10, 10, step=1)
 
+translation = tf.constant([x, y, z], dtype=tf.float32)
+
+translated_points = points_pyramid2 + translation
+
+fig4 = plt_basic_object_(translated_points.numpy(), counter)
+st.pyplot(fig4)
+
+
+
+def _diamond_(bottom_center=(0, 0, 0)):             #fucntion for diamond shape
+    bottom_center = np.array(bottom_center)
+
+    points = np.vstack([
+    bottom_center + [+2.5, +2.5, 0],
+    bottom_center + [-2.5, +2.5, 0],
+    bottom_center + [+2.5, -2.5, 0],
+    bottom_center + [-2.5, -2.5, 0],
+    bottom_center + [0, 0, 5],
+    bottom_center + [0, 0, -5]
+    ])
+    return points
+
+init_pyramid = _diamond_(bottom_center=(0,0,0))
+points_pyramid = tf.constant(init_pyramid, dtype=tf.float32)
+counter = 3
+fig5=plt_basic_object_(init_pyramid, counter)
+st.pyplot(fig5)
+
+x = st.slider("Enter for x:", -10, 10, step=1)
+y = st.slider("Enter for y:", -10, 10, step=1)
+z = st.slider("Enter for z:", -10, 10, step=1)
+
+translation = tf.constant([x, y, z], dtype=tf.float32)
+
+translated_points = points_pyramid2 + translation
+
+fig6 = plt_basic_object_(translated_points.numpy(), counter)
+st.pyplot(fig6)
 
