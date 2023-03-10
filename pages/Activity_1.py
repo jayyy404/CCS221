@@ -16,7 +16,7 @@ def DDALine(x1, y1, x2, y2, color):
         st.pyplot(int(x1), int(y1), color)
         x1 += Xinc
         y1 += Yinc
-    return plt
+    return st
 
 def DDALine_mpoints(x1, y1, x2, y2, color):
     dx = x2 - x1
@@ -28,10 +28,10 @@ def DDALine_mpoints(x1, y1, x2, y2, color):
     ym = (y1 + y2)/2
     st.pyplot(xm,ym, marker = 'o', markerfacecolor = "green")
     for i in range(0, int(steps + 1)):
-        plt.plot(int(x1), int(y1), color)
+        st.pyplot(int(x1), int(y1), color)
         x1 += Xinc
         y1 += Yinc
-    return plt
+    return st
 
 def bres_line(x1,y1,x2,y2):
     x,y = x1, y1
@@ -56,7 +56,7 @@ def bres_line(x1,y1,x2,y2):
         xcoords.append(x)
         ycoords.append(y)
     st.pyplot(xcoords, ycoords)
-    return plt
+    return st
 
 def bres_line_mpoint(x1,y1,x2,y2):
     x,y = x1, y1
@@ -74,3 +74,4 @@ def bres_line_mpoint(x1,y1,x2,y2):
     xm = (x1 + x2)/2
     ym = (y1 + y2)/2
     st.pyplot(xm,ym)
+    return st
