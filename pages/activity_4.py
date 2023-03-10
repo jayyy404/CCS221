@@ -50,8 +50,8 @@ fig1 = plt_basic_object_(init_pyramid, counter)
 st.pyplot(fig1)
 
 x = st.slider("Enter for x:", -10, 10, step=1,key='my_slider1')
-y = st.slider("Enter for y:", -10, 10, step=1,key='my_slider1')
-z = st.slider("Enter for z:", -10, 10, step=1,key='my_slider1')
+y = st.slider("Enter for y:", -10, 10, step=1,key='my_slider2')
+z = st.slider("Enter for z:", -10, 10, step=1,key='my_slider3')
 
 translation = tf.constant([x, y, z], dtype=tf.float32)
 
@@ -82,9 +82,9 @@ counter = 2
 fig3 = plt_basic_object_(init_heart, counter)
 st.pyplot(fig3)
 
-x = st.slider("Enter for x:", -10, 10, step=1,key='my_slider2')
-y = st.slider("Enter for y:", -10, 10, step=1,key='my_slider2')
-z = st.slider("Enter for z:", -10, 10, step=1,key='my_slider2')
+x = st.slider("Enter for x:", -10, 10, step=1,key='my_slider4')
+y = st.slider("Enter for y:", -10, 10, step=1,key='my_slider5')
+z = st.slider("Enter for z:", -10, 10, step=1,key='my_slider6')
 
 translation = tf.constant([x, y, z], dtype=tf.float32)
 
@@ -114,9 +114,9 @@ counter = 3
 fig5=plt_basic_object_(init_pyramid, counter)
 st.pyplot(fig5)
 
-x = st.slider("Enter for x:", -10, 10, step=1,key='my_slider3')
-y = st.slider("Enter for y:", -10, 10, step=1,key='my_slider3')
-z = st.slider("Enter for z:", -10, 10, step=1,key='my_slider3')
+x = st.slider("Enter for x:", -10, 10, step=1,key='my_slider7')
+y = st.slider("Enter for y:", -10, 10, step=1,key='my_slider8')
+z = st.slider("Enter for z:", -10, 10, step=1,key='my_slider9')
 
 translation = tf.constant([x, y, z], dtype=tf.float32)
 
