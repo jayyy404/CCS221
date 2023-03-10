@@ -87,5 +87,5 @@ def main():
     elif algorithm == "Bresenham":
         BresenhamLine(x1, y1, x2, y2)
 
-if _name_ == "_main_":
-    main()
+
+main()
