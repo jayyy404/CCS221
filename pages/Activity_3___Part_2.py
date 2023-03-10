@@ -3,97 +3,70 @@
 #Jed Andrew Del Rosario
 #Marc Joshua Escueta
 
-import numpy as np
-import cv2 
-import matplotlib.pyplot as plt
 import streamlit as st
-import pandas as pd
-from io import StringIO
+import numpy as np
+import cv2
+from PIL import Image
+import matplotlib.pyplot as plt
 
-#functions for modifying the images
+# functions for modifying the images
 def translation_img(imgs):
     rows, cols = imgs.shape[:2]
-    m_translation = np.float32([[1, 0, 100],
-                                [0, 1, 50]])
-
+    m_translation = np.float32([[1, 0, 100], [0, 1, 50]])
     translated_img = cv2.warpAffine(imgs, m_translation, (cols, rows))
-    
-    return translated_img                           #returning the value to the main function where is(are) to be called 
+    return translated_img
 
 def rotation_img(imgs):
     rows, cols = imgs.shape[:2]
     angle = 10
     m_rotation = cv2.getRotationMatrix2D((cols/2, rows/2), angle, 1)
-
     rotated_img = cv2.warpAffine(imgs, m_rotation, (cols, rows))
-
     return rotated_img
 
 def scaling_img(imgs):
     rows, cols = imgs.shape[:2]
-    m_scaling = np.float32([[1.5, 0, 0],
-                            [0, 1.8, 0]])
-
+    m_scaling = np.float32([[1.5, 0, 0], [0, 1.8, 0]])
     scaled_img = cv2.warpAffine(imgs, m_scaling, (int(cols*2), int(rows*2)))
-    
     return scaled_img
 
 def reflection_img(imgs):
     rows, cols = imgs.shape[:2]
-    m_reflection = np.float32([[1, 0,0],
-                               [0,-1,rows]])
-
+    m_reflection = np.float32([[1, 0, 0], [0, -1, rows]])
     reflected_img = cv2.warpAffine(imgs, m_reflection, (cols, rows))
-    
     return reflected_img
-
 
 def shear_img(imgs):
     rows, cols = imgs.shape[:2]
-  
-    m_shearing=np.float32([[1,0.5,0],
-                         [0,1,0],
-                         [0,0,1]])
-
+    m_shearing = np.float32([[1, 0.5, 0], [0, 1, 0], [0, 0, 1]])
     sheared_img = cv2.warpPerspective(imgs, m_shearing, (int(cols*1.5), int(rows*1.5)))
-
     return sheared_img
 
-
-
-
-
 def main():
+    st.set_page_config(page_title="Image Transformations", page_icon=":camera:")
     
-   
-
-    uploaded_file = st.file_uploader("Choose an image", type=["jpg", "jpeg", "png"])
-    if uploaded_file is not None:
-        # read image
-        bytes_data = uploaded_file.read()
-        nparr = np.frombuffer(bytes_data, np.uint8)
-        img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
-    else:
-        img_path = "flower.jpg"
+    # for loop to keep on reading 5 images and applying the changes
+    for i in range(1, 6):
+        img_path = f"pic{i}.jpg"
         imgs = cv2.imread(img_path)
         imgs = cv2.cvtColor(imgs, cv2.COLOR_BGR2RGB)
-        
-    #for i in range(1 ,6):
-        
-    #    
-    
-        
-    translated_img = translation_img(imgs)
-    rotated_img = rotation_img(imgs)
-    scaled_img = scaling_img(imgs)                     #calling the functions above to be executed in main function
-    reflected_img = reflection_img(imgs)
-    sheared_img = shear_img(imgs)
+        st.image(imgs, use_column_width=True, caption="Original Image")
+
+        translated_imgs = translation_img(imgs)
+        st.image(translated_imgs, use_column_width=True, caption="Translated Image")
+
+        rotated_imgs = rotation_img(imgs)
+        st.image(rotated_imgs, use_column_width=True, caption="Rotated Image")
+
+        scaled_imgs = scaling_img(imgs)
+        st.image(scaled_imgs, use_column_width=True, caption="Scaled Image")
+
+        reflected_imgs = reflection_img(imgs)
+        st.image(reflected_imgs, use_column_width=True, caption="Reflected Image")
+
+        sheared_imgs = shear_img(imgs)
+        st.image(sheared_imgs, use_column_width=True, caption="Sheared Image")
 
 
-    st.image([img, translated_img, rotated_img, scaled_img, reflected_img, sheared_img],
-             caption=["Original Image", "Translated Image", "Rotated Image", "Scaled Image", "Reflected Image", "Sheared Image"],
-             width=200)
-    
     
     
     
