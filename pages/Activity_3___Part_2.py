@@ -43,13 +43,20 @@ def shear_img(imgs):
 
 def main():
     st.set_page_config(page_title="Image Transformations", page_icon=":camera:")
-    
-    # for loop to keep on reading 5 images and applying the changes
-    for i in range(1, 6):
-        img_path = f"pic{i}.jpg"
-        imgs = cv2.imread(img_path)
-        imgs = cv2.cvtColor(imgs, cv2.COLOR_BGR2RGB)
+
+        
+        
+    uploaded_file = st.file_uploader("Choose an image", type=["jpg", "jpeg", "png"])
+    if uploaded_file is not None:
+        # read image
+        bytes_data = uploaded_file.read()
+        nparr = np.frombuffer(bytes_data, np.uint8)
+        img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+    else:
+        img = read_image("flower.jpg")
         st.image(imgs, use_column_width=True, caption="Original Image")
+        
+        
 
         translated_imgs = translation_img(imgs)
         st.image(translated_imgs, use_column_width=True, caption="Translated Image")
