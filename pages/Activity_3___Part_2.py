@@ -58,20 +58,20 @@ def main():
         
         
 
-        translated_imgs = translation_img(imgs)
-        st.image(translated_imgs, use_column_width=True, caption="Translated Image")
+        translated_img = translation_img(imgs)
+        st.image(translated_img, use_column_width=True, caption="Translated Image")
 
         rotated_imgs = rotation_img(imgs)
         st.image(rotated_imgs, use_column_width=True, caption="Rotated Image")
 
-        scaled_imgs = scaling_img(imgs)
-        st.image(scaled_imgs, use_column_width=True, caption="Scaled Image")
+        scaled_img = scaling_img(imgs)
+        st.image(scaled_img, use_column_width=True, caption="Scaled Image")
 
-        reflected_imgs = reflection_img(imgs)
-        st.image(reflected_imgs, use_column_width=True, caption="Reflected Image")
+        reflected_img = reflection_img(imgs)
+        st.image(reflected_img, use_column_width=True, caption="Reflected Image")
 
-        sheared_imgs = shear_img(imgs)
-        st.image(sheared_imgs, use_column_width=True, caption="Sheared Image")
+        sheared_img = shear_img(imgs)
+        st.image(sheared_img, use_column_width=True, caption="Sheared Image")
 
 
     
