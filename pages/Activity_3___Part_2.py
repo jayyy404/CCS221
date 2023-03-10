@@ -54,7 +54,7 @@ def main():
         img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
     else:
         img = read_image("flower.jpg")
-        st.image(imgs, use_column_width=True, caption="Original Image")
+        st.image(img, use_column_width=True, caption="Original Image")
         
         
 
