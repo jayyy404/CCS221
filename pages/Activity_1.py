@@ -7,83 +7,128 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import pandas as pd
 
+plt.title("DDA Line Algorithm")
+plt.xlabel("X Axis")
+plt.ylabel("Y Axis")
 def DDALine(x1, y1, x2, y2, color):
     dx = x2 - x1
     dy = y2 - y1
+
     steps = abs(dx) if abs(dx) > abs(dy) else abs(dy)
+
     Xinc = float(dx / steps)
     Yinc = float(dy / steps)
-    
-    fig, ax = plt.subplots()
+
+ 
     for i in range(0, int(steps + 1)):
         plt.plot(int(x1), int(y1), color)
         x1 += Xinc
         y1 += Yinc
-    ax.set_aspect('equal', adjustable='box')
-    return fig
 
+    plt.show()
+
+
+
+#DDA Line with midpoints
+plt.title("DDA line/ Midpoints")
+plt.xlabel("X Axis")
+plt.ylabel("Y Axis")
 def DDALine_mpoints(x1, y1, x2, y2, color):
     dx = x2 - x1
     dy = y2 - y1
+
     steps = abs(dx) if abs(dx) > abs(dy) else abs(dy)
+
     Xinc = float(dx / steps)
     Yinc = float(dy / steps)
+
     xm = (x1 + x2)/2
-    ym = (y1 + y2)/2
-    fig, ax = plt.subplots()
-    plt.plot(xm,ym, marker='o', markerfacecolor='green')
+    ym = (y1 + y2)/2                                            #These line of codes are the midpoints formula
+    print ("\nX midpoint: ",xm, "\nY midpoint: ",ym)
+    plt.plot(xm,ym, marker = 'o', markerfacecolor = "green")
+
     for i in range(0, int(steps + 1)):
         plt.plot(int(x1), int(y1), color)
         x1 += Xinc
         y1 += Yinc
-    ax.set_aspect('equal', adjustable='box')
-    return fig
 
+    plt.show()                                                  #this let the program show a graph for the users input
+
+#Brasenham lINE
+plt.title("Braseham Line")
+plt.xlabel("X Axis")
+plt.ylabel("Y Axis")
 def bres_line(x1,y1,x2,y2):
     x,y = x1, y1
     dx = abs(x2 - x1) 
     dy = abs(y2 - y1) 
     slope = dy/float(dx)
+
     if slope > 1:
         dx, dy = dy, dx
         x, y = y, x
         x1, y1 = y1, x1
         x2, y2 = y2, x2
+
     p = 2 * dy - dx
     xcoords = [x]
     ycoords = [y]
-    fig, ax = plt.subplots()
+
     for i in range(2, dx):
         if p > 0:
             y = y + 1 if y < y2 else y - 1
             p = p + 2 * (dy - dx)
         else:
             p = p + 2 * dy 
+
         x = x + 1 if x < x2 else x - 1
         xcoords.append(x)
         ycoords.append(y)
-    plt.plot(xcoords, ycoords)
-    ax.set_aspect('equal', adjustable='box')
-    return fig
 
+    plt.plot(xcoords, ycoords)
+    plt.show()
+
+#Brasenham Line wirh Midpoint
+plt.title("Braseham Line/Midpoint")
+plt.xlabel("X Axis")
+plt.ylabel("Y Axis")
 def bres_line_mpoint(x1,y1,x2,y2):
     x,y = x1, y1
     dx = abs(x2 - x1) 
     dy = abs(y2 - y1) 
     slope = dy/float(dx)
+
     if slope > 1:
         dx, dy = dy, dx
         x, y = y, x
         x1, y1 = y1, x1
         x2, y2 = y2, x2
+
     p = 2 * dy - dx
     xcoords = [x]
     ycoords = [y]
+
     xm = (x1 + x2)/2
-    ym = (y1 + y2)/2
+    ym = (y1 + y2)/2                                            #These line of codes are the midpoints formula
+    print ("\nX midpoint: ",xm, "\nY midpoint: ",ym)
+    plt.plot(xm,ym, marker = 'o', markerfacecolor = "green")
+
+    for i in range(2, dx):
+        if p > 0:
+            y = y + 1 if y < y2 else y - 1
+
+            p = p + 2 * (dy - dx)
+        else:
+            p = p + 2 * dy 
+
+        x = x + 1 if x < x2 else x - 1
+        xcoords.append(x)
+        ycoords.append(y)
+
     plt.plot(xcoords, ycoords)
-    ax.set_aspect('equal', adjustable='box')
-    return fig
+    plt.show()
+
+
 draw_funcs = {
     'DDA Line': DDALine,
     'DDA Line with midpoints': DDALine_mpoints,
