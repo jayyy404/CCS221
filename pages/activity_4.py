@@ -88,7 +88,7 @@ z = st.slider("Enter for z:", -10, 10, step=1,key='my_slider6')
 
 translation = tf.constant([x, y, z], dtype=tf.float32)
 
-translated_points = points_pyramid2 + translation
+translated_points = points_heart + translation
 
 fig4 = plt_basic_object_(translated_points.numpy(), counter)
 st.pyplot(fig4)
