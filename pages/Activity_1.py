@@ -103,6 +103,6 @@ def main():
         color = "g."
         DDALine(x1, y1, x2, y2, color)
     elif algorithm == "Bresenham":
-        BresenhamLine(x1, y1, x2, y2)
+        BresenhamLine(x1, y1, x2, y2,color)
 
 main()
