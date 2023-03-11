@@ -5,6 +5,7 @@
 
 import streamlit as st
 import matplotlib.pyplot as plt
+import pandas as pd
 
 def DDALine(x1, y1, x2, y2, color):
     dx = x2 - x1
