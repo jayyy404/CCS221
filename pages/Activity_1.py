@@ -32,7 +32,7 @@ def DDALine(x1, y1, x2, y2, color):
 # Draw the line
     DDALine(x1, y1, x2, y2, color)
     ax.set_aspect('equal', adjustable='box')
-    st.pyplot(fig)
+    plt.plot(fig)
 
 def DDALine_mpoints(x1, y1, x2, y2, color):
     dx = x2 - x1
@@ -60,7 +60,7 @@ def DDALine_mpoints(x1, y1, x2, y2, color):
     color = st.selectbox('Select a color:', ['red', 'green', 'blue'])
     DDALine(x1, y1, x2, y2, color)
     ax.set_aspect('equal', adjustable='box')
-    st.pyplot(fig)
+    plt.plot(fig)
 
 def bres_line(x1,y1,x2,y2):
     x,y = x1, y1
@@ -85,7 +85,7 @@ def bres_line(x1,y1,x2,y2):
         x = x + 1 if x < x2 else x - 1
         xcoords.append(x)
         ycoords.append(y)
-    st.pyplot(plt.plot(xcoords, ycoords))
+    plt.plot(plt.plot(xcoords, ycoords))
     return plt
 
     st.title('DDA Line Drawing Algorithm')
@@ -99,7 +99,7 @@ def bres_line(x1,y1,x2,y2):
 
     DDALine(x1, y1, x2, y2, color)
     ax.set_aspect('equal', adjustable='box')
-    st.pyplot(fig)
+    plt.plot(fig)
 
 def bres_line_mpoint(x1,y1,x2,y2):
     x,y = x1, y1
@@ -116,7 +116,7 @@ def bres_line_mpoint(x1,y1,x2,y2):
     ycoords = [y]
     xm = (x1 + x2)/2
     ym = (y1 + y2)/2
-    st.pyplot(plt.plot(xcoords, ycoords), plt.plot(xm,ym, marker = 'o', markerfacecolor = "green"))
+    plt.plot(xcoords, ycoords), plt.plot(xm,ym, marker = 'o', markerfacecolor = "green")
     return plt
 
     st.title('DDA Line Drawing Algorithm')
@@ -132,7 +132,7 @@ def bres_line_mpoint(x1,y1,x2,y2):
     fig, ax = plt.subplots()
     DDALine(x1, y1, x2, y2, color)
     ax.set_aspect('equal', adjustable='box')
-    st.pyplot(fig)
+    plt.plot(fig)
 
 
 
