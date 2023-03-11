@@ -40,11 +40,8 @@ def DDALine(x1, y1, x2, y2, color):
 
 
 def BresenhamLine(x1, y1, x2, y2, color):
-    x, y = x1, y1
-    dx = int(abs(x2 - x1))
-    dy = abs(y2 - y1)
     
-    if dx == 0:
+    if x1 == x2:
         # if dx is zero, draw a vertical line
         ycoordinates = [y1, y2]
         xcoordinates = [x1] * 2
@@ -55,8 +52,12 @@ def BresenhamLine(x1, y1, x2, y2, color):
         ax.set_title("Bresenham Algorithm")
         st.pyplot(fig)
         return
+    
+    x, y = x1, y1
+    dx = abs(x2 - x1)
+    dy = abs(y2 - y1)
 
-    gradient = dy /dx
+    gradient = dy / float(dx)
 
     if gradient > 1:
         dx, dy = dy, dx
@@ -78,6 +79,18 @@ def BresenhamLine(x1, y1, x2, y2, color):
         x = x + 1 if x < x2 else x - 1
         xcoordinates.append(x)
         ycoordinates.append(y)
+
+    midX = (x1 + x2) // 2
+    midY = (y1 + y2) // 2
+    st.write("Midpoint of the line is at ({}, {})".format(midX, midY))
+
+    fig, ax = plt.subplots()
+    ax.scatter(xcoordinates, ycoordinates, color="r.")
+    ax.set_xlabel("X-Axis")
+    ax.set_ylabel("Y-Axis")
+    ax.set_title("Bresenham Algorithm")
+    st.pyplot(fig)
+
 
     midX = (x1 + x2) // 2
     midY = (y1 + y2) // 2
