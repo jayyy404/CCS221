@@ -41,7 +41,7 @@ def DDALine(x1, y1, x2, y2, color):
 
 def BresenhamLine(x1, y1, x2, y2, color):
     x, y = x1, y1
-    dx = abs(x2 - x1)
+    dx = int(abs(x2 - x1))
     dy = abs(y2 - y1)
     
     if dx == 0:
