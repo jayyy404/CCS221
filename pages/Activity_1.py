@@ -39,7 +39,7 @@ def DDALine(x1, y1, x2, y2, color):
     st.pyplot(fig)
 
 
-def BresenhamLine(x1, y1, x2, y2, color):
+def BresenhamLine(x1, y1, x2, y2, color="red"):
     x, y = x1, y1
     dx = abs(x2 - x1)
     dy = abs(y2 - y1)
@@ -84,7 +84,7 @@ def BresenhamLine(x1, y1, x2, y2, color):
     st.write("Midpoint of the line is at ({}, {})".format(midX, midY))
 
     fig, ax = plt.subplots()
-    ax.scatter(xcoordinates, ycoordinates, color="r.")
+    ax.scatter(xcoordinates, ycoordinates, color=color)
     ax.set_xlabel("X-Axis")
     ax.set_ylabel("Y-Axis")
     ax.set_title("Bresenham Algorithm")
