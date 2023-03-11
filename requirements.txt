@@ -5,4 +5,3 @@ matplotlib
 tensorflow
 opencv-python-headless
 scipy
-mpl_toolkits.mplot3d
