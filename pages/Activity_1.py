@@ -56,7 +56,7 @@ def BresenhamLine(x1, y1, x2, y2, color):
         st.pyplot(fig)
         return
 
-    gradient = dy / float(dx)
+    gradient = dy /dx
 
     if gradient > 1:
         dx, dy = dy, dx
