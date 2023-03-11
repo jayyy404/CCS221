@@ -55,7 +55,7 @@ def BresenhamLine(x1, y1, x2, y2):
     xcoordinates = [x]
     ycoordinates = [y]
 
-    for k in range( dx):
+    for k in range(dx):
         if p > 0:
             y = y + 1 if y < y2 else y - 1
             p = p + 2 * (dy - dx)
@@ -86,7 +86,7 @@ def main():
     y2 = st.sidebar.number_input("Enter the end point of y:")
 
     if algorithm == "DDA":
-        color = "r."
+        color = "green"
         DDALine(x1, y1, x2, y2, color)
     elif algorithm == "Bresenham":
         BresenhamLine(x1, y1, x2, y2)
