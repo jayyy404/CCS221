@@ -84,3 +84,30 @@ def bres_line_mpoint(x1,y1,x2,y2):
     plt.plot(xcoords, ycoords)
     ax.set_aspect('equal', adjustable='box')
     return fig
+draw_funcs = {
+    'DDA Line': DDALine,
+    'DDA Line with midpoints': DDALine_mpoints,
+    'Bresenham Line': bres_line,
+    'Bresenham Line with midpoint': bres_line_mpoint
+}
+
+# Define the Streamlit app
+def main():
+    st.title('Line Drawing App')
+    st.write('Choose a line drawing function:')
+    
+    # Create a dropdown menu to let the user choose the drawing function
+    func_name = st.selectbox('Function', list(draw_funcs.keys()))
+
+    # Get user's input for the line coordinates
+    x1 = st.number_input('X1', value=0)
+    y1 = st.number_input('Y1', value=0)
+    x2 = st.number_input('X2', value=0)
+    y2 = st.number_input('Y2', value=0)
+    color = st.text_input('Color', default='r.')
+
+    # Draw the line using the selected function
+    if st.button('Draw'):
+        fig, ax = plt.subplots()
+        draw_funcs[func_name](x1, y1, x2, y2, color)
+        st.pyplot(fig)
