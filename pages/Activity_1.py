@@ -68,7 +68,7 @@ def BresenhamLine(x1, y1, x2, y2, color):
     xcoordinates = [x]
     ycoordinates = [y]
 
-    for k in range(dx+2):
+    for k in range(2,dx+2):
         if p > 0:
             y = y + 1 if y < y2 else y - 1
             p = p + 2 * (dy - dx)
