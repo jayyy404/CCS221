@@ -56,7 +56,7 @@ def BresenhamLine(x1, y1, x2, y2, color):
         st.pyplot(fig)
         return
 
-    gradient = dy /dx
+    gradient = dy / float(dx)
 
     if gradient > 1:
         dx, dy = dy, dx
@@ -68,7 +68,7 @@ def BresenhamLine(x1, y1, x2, y2, color):
     xcoordinates = [x]
     ycoordinates = [y]
 
-    for k in range(2,dx+2):
+    for k in range(2, dx+2):
         if p > 0:
             y = y + 1 if y < y2 else y - 1
             p = p + 2 * (dy - dx)
@@ -84,11 +84,12 @@ def BresenhamLine(x1, y1, x2, y2, color):
     st.write("Midpoint of the line is at ({}, {})".format(midX, midY))
 
     fig, ax = plt.subplots()
-    ax.scatter(xcoordinates, ycoordinates, color=color)
+    ax.scatter(xcoordinates, ycoordinates, color="r.")
     ax.set_xlabel("X-Axis")
     ax.set_ylabel("Y-Axis")
     ax.set_title("Bresenham Algorithm")
     st.pyplot(fig)
+
 
 def main():
     st.sidebar.title("Select Algorithm")
