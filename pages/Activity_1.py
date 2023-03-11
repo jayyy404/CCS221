@@ -117,7 +117,15 @@ def main():
         color = "g."
         DDALine(x1, y1, x2, y2, color)
     elif algorithm == "Bresenham":
-        color="r."
+        if dx == 0 and dy == 0:
+        # if both dx and dy are zero, just plot a point
+            fig, ax = plt.subplots()
+            ax.scatter(x1, y1, color="r")
+            ax.set_xlabel("X-Axis")
+            ax.set_ylabel("Y-Axis")
+            ax.set_title("Bresenham Algorithm")
+            st.pyplot(fig)
+    else:
         BresenhamLine(x1, y1, x2, y2,color)
 
 main()
