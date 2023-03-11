@@ -5,3 +5,4 @@ matplotlib
 tensorflow
 opencv-python-headless
 scipy
+Axes3D
