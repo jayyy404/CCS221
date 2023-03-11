@@ -39,7 +39,7 @@ def DDALine(x1, y1, x2, y2, color):
     st.pyplot(fig)
 
 
-def BresenhamLine(x1, y1, x2, y2, color="red"):
+def BresenhamLine(x1, y1, x2, y2, color):
     x, y = x1, y1
     dx = abs(x2 - x1)
     dy = abs(y2 - y1)
@@ -56,7 +56,7 @@ def BresenhamLine(x1, y1, x2, y2, color="red"):
         st.pyplot(fig)
         return
 
-    gradient = dy / float(dx)
+    gradient = dy /dx
 
     if gradient > 1:
         dx, dy = dy, dx
@@ -68,7 +68,7 @@ def BresenhamLine(x1, y1, x2, y2, color="red"):
     xcoordinates = [x]
     ycoordinates = [y]
 
-    for k in range(2, dx+2):
+    for k in range(dx):
         if p > 0:
             y = y + 1 if y < y2 else y - 1
             p = p + 2 * (dy - dx)
@@ -103,6 +103,7 @@ def main():
         color = "g."
         DDALine(x1, y1, x2, y2, color)
     elif algorithm == "Bresenham":
+        color="r."
         BresenhamLine(x1, y1, x2, y2,color)
 
 main()
