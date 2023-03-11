@@ -86,7 +86,7 @@ def main():
     y2 = st.sidebar.number_input("Enter the end point of y:")
 
     if algorithm == "DDA":
-        color = red
+        color = "r."
         DDALine(x1, y1, x2, y2, color)
     elif algorithm == "Bresenham":
         BresenhamLine(x1, y1, x2, y2)
