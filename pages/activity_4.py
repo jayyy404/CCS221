@@ -49,9 +49,11 @@ counter = 1
 fig1 = plt_basic_object_(init_pyramid, counter)
 st.pyplot(fig1)
 
-x = st.slider("Enter for x:", -10, 10, step=1,key='my_slider1')
-y = st.slider("Enter for y:", -10, 10, step=1,key='my_slider2')
-z = st.slider("Enter for z:", -10, 10, step=1,key='my_slider3')
+
+
+x = st.sidebar.number_input("Enter the value of x:")
+y = st.sidebar.number_input("Enter the valuef y:")
+z = st.sidebar.number_input("Enter the value of x:")
 
 
 translation = tf.constant([x, y, z], dtype=tf.float32)
