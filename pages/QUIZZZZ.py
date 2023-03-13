@@ -22,8 +22,14 @@ def new_translated(img, bx_old, by_old, tx, ty):
     return translate_image(img, bx_new, by_new)
 
 def main():
-    # Read image
-    img = read_image("test.jpg")
+    uploaded_file = st.file_uploader("Choose an image", type=["jpg", "jpeg", "png"])
+    if uploaded_file is not None:
+        # read image
+        bytes_data = uploaded_file.read()
+        nparr = np.frombuffer(bytes_data, np.uint8)
+        img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+    else:
+        img = read_image("test.jpg")
 
     # IMAGES WITH ORIGINAL VALUES
     translated_imgs = []
