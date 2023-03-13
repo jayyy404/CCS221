@@ -31,7 +31,7 @@ def main():
         nparr = np.frombuffer(bytes_data, np.uint8)
         img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
     else:
-        img = read_image("test.jpg")
+        img = read_image("flower.jpg")
 
     # IMAGES WITH ORIGINAL VALUES
     translated_imgs = []
