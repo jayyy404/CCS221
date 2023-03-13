@@ -94,7 +94,7 @@ def main():
         color = "g."
         DDALine(x1, y1, x2, y2, color)
     elif algorithm == "Bresenham":
-        bres_line(x1,y1,x2,y2)
+        def bres_line_mpoint(x1,y1,x2,y2)
         
 
 main()
