@@ -44,7 +44,7 @@ def DDALine(x1, y1, x2, y2, color):
     st.pyplot(fig)
 
 
-def BresenhamLine(x1, y1, x2, y2):
+def BresenhamLine(x1, y1, x2, y2,color):
     
     if x1 == x2 and y1 == y2:
         return
