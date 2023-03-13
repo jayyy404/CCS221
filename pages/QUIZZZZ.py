@@ -6,6 +6,7 @@
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
+import streamlit as st
 
 def read_image(path):
     img = cv2.imread(path)
@@ -48,6 +49,6 @@ def main():
         axs[0][i].set_title(f"Original {i+1}")
         axs[1][i].imshow(modified_imgs[i])
         axs[1][i].set_title(f"# {i+1}")
-    plt.show()
+    st.pyplot()
 
 main()
