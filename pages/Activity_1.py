@@ -67,7 +67,7 @@ def bres_line_mpoint(x1,y1,x2,y2):
 
     fig, ax = plt.subplots()
     ax.plot(xm, ym, marker='o', markerfacecolor="green")
-    for i in range(2, dx):
+    for i in range(1, int(dx)):
         if p > 0:
             y = y + 1 if y < y2 else y - 1
             p = p + 2 * (dy - dx)
