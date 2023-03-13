@@ -36,7 +36,7 @@ def DDALine(x1, y1, x2, y2, color):
     midX = (x1 + x2) // 2
     midY = (y1 + y2) // 2
     st.write("Midpoint of the line is at ({}, {})".format(midX, midY))
-    plt.plot(xm,ym, marker = 'o', markerfacecolor = "green")
+    st.pyplot(xm,ym, marker = 'o', markerfacecolor = "green")
 
     ax.set_xlabel("X-Axis")
     ax.set_ylabel("Y-Axis")
