@@ -59,7 +59,7 @@ def bres_line(x1,y1,x2,y2,color):
     ycoords = [y]
 
     fig,ax = plt.subplots()
-    for i in range(1, dx):
+    for i in range(1, int(dx)):
         if p > 0:
             y = y + 1 if y < y2 else y - 1
             p = p + 2 * (dy - dx)
@@ -74,7 +74,6 @@ def bres_line(x1,y1,x2,y2,color):
     st.write("Midpoint of the line is at ({}, {})".format(xcoords, ycoords))
     plt.plot(xcoords,ycoords, marker = 'o', markerfacecolor = "red")
 
-    
     ax.set_xlabel("X-Axis")
     ax.set_ylabel("Y-Axis")
     ax.set_title("Brasenham Algorithm")
