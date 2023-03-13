@@ -8,6 +8,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import streamlit as st
 
+
 def read_image(path):
     img = cv2.imread(path)
     return cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
@@ -42,13 +43,11 @@ def main():
     for bx_old, by_old, tx, ty in [(2, 5, 6, 2), (3, 6, 7, 3), (4, 7, 8, 4), (5, 8, 9, 5), (6, 9, 10, 3)]:
         modified_imgs.append(new_translated(img, bx_old, by_old, tx, ty))
 
-    # Display images
-    fig, axs = plt.subplots(2, 5, figsize=(16, 8))
+    # Display images using st.pyplot()
     for i in range(5):
-        axs[0][i].imshow(translated_imgs[i])
-        axs[0][i].set_title(f"Original {i+1}")
-        axs[1][i].imshow(modified_imgs[i])
-        axs[1][i].set_title(f"# {i+1}")
-    st.pyplot()
+        st.subheader(f"Original {i+1}")
+        st.image(translated_imgs[i])
+        st.subheader(f"# {i+1}")
+        st.image(modified_imgs[i])
 
 main()
