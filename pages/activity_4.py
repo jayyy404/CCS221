@@ -50,13 +50,9 @@ fig1 = plt_basic_object_(init_pyramid, counter)
 st.pyplot(fig1)
 
 x = st.slider("Enter for x:", -10, 10, step=1,key='my_slider1')
-st.markdown("<h3 style='text-align: center;'>Slider X: {}</h3>".format(x), unsafe_allow_html=True)
-
 y = st.slider("Enter for y:", -10, 10, step=1,key='my_slider2')
-st.markdown("<h3 style='text-align: center;'>Slider Y: {}</h3>".format(x), unsafe_allow_html=True)
-
 z = st.slider("Enter for z:", -10, 10, step=1,key='my_slider3')
-st.markdown("<h3 style='text-align: center;'>Slider Z: {}</h3>".format(x), unsafe_allow_html=True)
+
 
 translation = tf.constant([x, y, z], dtype=tf.float32)
 
