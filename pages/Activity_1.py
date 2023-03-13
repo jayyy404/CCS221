@@ -32,6 +32,10 @@ def DDALine(x1, y1, x2, y2, color):
         ax.plot(int(x), int(y), color)
         x += Xinc
         y += Yinc
+        
+    midX = (x1 + x2) // 2
+    midY = (y1 + y2) // 2
+    st.write("Midpoint of the line is at ({}, {})".format(midX, midY))
 
     ax.set_xlabel("X-Axis")
     ax.set_ylabel("Y-Axis")
@@ -39,7 +43,7 @@ def DDALine(x1, y1, x2, y2, color):
     st.pyplot(fig)
 
 
-def BresenhamLine(x1, y1, x2, y2, color):
+def BresenhamLine(x1, y1, x2, y2):
     
     if x1 == x2 and y1 == y2:
         return
