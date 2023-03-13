@@ -91,6 +91,7 @@ def BresenhamLine(x1, y1, x2, y2):
     midX = (x1 + x2) // 2
     midY = (y1 + y2) // 2
     st.write("Midpoint of the line is at ({}, {})".format(midX, midY))
+    plt.plot(midX,midY, marker = 'o', markerfacecolor = "green")
 
     fig, ax = plt.subplots()
     ax.scatter(xcoordinates, ycoordinates, color="r.")
@@ -113,15 +114,8 @@ def main():
         color = "g."
         DDALine(x1, y1, x2, y2, color)
     elif algorithm == "Bresenham":
-          # if both dx and dy are zero, just plot a point
-        fig, ax = plt.subplots()
-        ax.scatter(x1, y1, color="r")
-        ax.set_xlabel("X-Axis") 
-        ax.set_ylabel("Y-Axis")
-        ax.set_title("Bresenham Algorithm")
-        st.pyplot(fig)
-        dx = BresenhamLine(x1, y1, x2, y2, color)
-        if dx == 0:
-            return
+        color="r."
+        BresenhamLine(x1, y1, x2, y2,color)
+        
 
 main()
