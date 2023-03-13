@@ -6,8 +6,6 @@
 import streamlit as st
 import matplotlib.pyplot as plt
 import pandas as pd
-
-import streamlit as st
 import matplotlib.pyplot as plt
 
 
@@ -61,7 +59,7 @@ def bres_line(x1,y1,x2,y2,color):
     ycoords = [y]
 
     fig,ax = plt.subplots()
-    for i in range(2, dx):
+    for i in range(1, dx):
         if p > 0:
             y = y + 1 if y < y2 else y - 1
             p = p + 2 * (dy - dx)
@@ -74,7 +72,7 @@ def bres_line(x1,y1,x2,y2,color):
 
     plt.plot(xcoords, ycoords)
     st.write("Midpoint of the line is at ({}, {})".format(xcoords, ycoords))
-    plt.plot(mxcoords,ycoords, marker = 'o', markerfacecolor = "red")
+    plt.plot(xcoords,ycoords, marker = 'o', markerfacecolor = "red")
 
     
     ax.set_xlabel("X-Axis")
