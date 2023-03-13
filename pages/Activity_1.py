@@ -42,7 +42,9 @@ def DDALine(x1, y1, x2, y2, color):
     st.pyplot(fig)
 
 
-def bres_line(x1,y1,x2,y2,color):
+st.title("Braseham Line/Midpoint")
+
+def bres_line_mpoint(x1,y1,x2,y2):
     x,y = x1, y1
     dx = abs(x2 - x1) 
     dy = abs(y2 - y1) 
@@ -58,27 +60,24 @@ def bres_line(x1,y1,x2,y2,color):
     xcoords = [x]
     ycoords = [y]
 
-    fig,ax = plt.subplots()
-    for i in range(1, dx):
+    xm = (x1 + x2)/2
+    ym = (y1 + y2)/2  # These lines of codes are the midpoint formula
+    st.write("\nX midpoint: ", xm)
+    st.write("Y midpoint: ", ym)
+
+    fig, ax = plt.subplots()
+    ax.plot(xm, ym, marker='o', markerfacecolor="green")
+    for i in range(2, dx):
         if p > 0:
             y = y + 1 if y < y2 else y - 1
             p = p + 2 * (dy - dx)
         else:
             p = p + 2 * dy 
-
         x = x + 1 if x < x2 else x - 1
         xcoords.append(x)
         ycoords.append(y)
-
-    plt.plot(xcoords, ycoords)
-    st.write("Midpoint of the line is at ({}, {})".format(xcoords, ycoords))
-    plt.plot(xcoords,ycoords, marker = 'o', markerfacecolor = "red")
-
-    ax.set_xlabel("X-Axis")
-    ax.set_ylabel("Y-Axis")
-    ax.set_title("Brasenham Algorithm")
+    ax.plot(xcoords, ycoords)
     st.pyplot(fig)
-
 
 
 
