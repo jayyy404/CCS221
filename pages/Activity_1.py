@@ -44,61 +44,45 @@ def DDALine(x1, y1, x2, y2, color):
     st.pyplot(fig)
 
 
-def BresenhamLine(x1, y1, x2, y2,color):
-    
-    if x1 == x2 and y1 == y2:
-        return
-    
-    x, y = x1, y1
-    dx = abs(x2 - x1)
-    dy = abs(y2 - y1)
-    
-    if dx == 0:
-        # if dx is zero, draw a vertical line
-        ycoordinates = [y1, y2]
-        xcoordinates = [x1] * 2
-        fig, ax = plt.subplots()
-        ax.plot(xcoordinates, ycoordinates, color)
-        ax.set_xlabel("X-Axis")
-        ax.set_ylabel("Y-Axis")
-        ax.set_title("Bresenham Algorithm")
-        st.pyplot(fig)
-        return
+def bres_line(x1,y1,x2,y2,color):
+    x,y = x1, y1
+    dx = abs(x2 - x1) 
+    dy = abs(y2 - y1) 
+    slope = dy/float(dx)
 
-    gradient = dy / float(dx)
-
-    if gradient > 1:
+    if slope > 1:
         dx, dy = dy, dx
         x, y = y, x
         x1, y1 = y1, x1
         x2, y2 = y2, x2
 
     p = 2 * dy - dx
-    xcoordinates = [x]
-    ycoordinates = [y]
+    xcoords = [x]
+    ycoords = [y]
 
-    for k in range(2, dx+2):
+    fig,ax = plt.subplots()
+    for i in range(2, dx):
         if p > 0:
             y = y + 1 if y < y2 else y - 1
             p = p + 2 * (dy - dx)
         else:
-            p = p + 2 * dy
+            p = p + 2 * dy 
 
         x = x + 1 if x < x2 else x - 1
-        xcoordinates.append(x)
-        ycoordinates.append(y)
+        xcoords.append(x)
+        ycoords.append(y)
 
-    midX = (x1 + x2) // 2
-    midY = (y1 + y2) // 2
-    st.write("Midpoint of the line is at ({}, {})".format(midX, midY))
-    plt.plot(midX,midY, marker = 'o', markerfacecolor = "green")
+    plt.plot(xcoords, ycoords)
+    st.write("Midpoint of the line is at ({}, {})".format(xcoords, ycoords))
+    plt.plot(mxcoords,ycoords, marker = 'o', markerfacecolor = "red")
 
-    fig, ax = plt.subplots()
-    ax.scatter(xcoordinates, ycoordinates, color="r.")
+    
     ax.set_xlabel("X-Axis")
     ax.set_ylabel("Y-Axis")
-    ax.set_title("Bresenham Algorithm")
+    ax.set_title("Brasenham Algorithm")
     st.pyplot(fig)
+
+
 
 
 def main():
