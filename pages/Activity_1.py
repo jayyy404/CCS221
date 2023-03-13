@@ -123,9 +123,5 @@ def main():
         dx = BresenhamLine(x1, y1, x2, y2, color)
         if dx == 0:
             return
-        
-      
-    else:
-        BresenhamLine(x1, y1, x2, y2,color)
 
 main()
