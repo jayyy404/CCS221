@@ -1,6 +1,13 @@
+#Group 4
+#John Paul T. Sapasap
+#Jed Andrew Del Rosario
+#Marc Joshua Escueta
+
 import numpy as np
 import matplotlib.pyplot as plt
 import streamlit as st
+
+st.title("Color Mapping")
 
 two_d_arr = np.array([[1,0,1], [0,1,0],[1,0,1]])
 
