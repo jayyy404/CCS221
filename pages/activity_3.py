@@ -81,6 +81,8 @@ def main():
         bytes_data = uploaded_file.read()
         nparr = np.frombuffer(bytes_data, np.uint8)
         img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+    else:
+        img = read_image("flower.jpg")
 
     # perform transformations
     translated_img_ = translation_img(img)
