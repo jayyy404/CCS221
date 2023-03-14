@@ -11,7 +11,9 @@ from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
 from scipy.spatial import Delaunay
 
+st.title("3D TRANSFORMATION")
 def plt_basic_object_(points, counter):
+    
     tri = Delaunay(points).convex_hull
 
     fig = plt.figure(figsize=(8,8))
