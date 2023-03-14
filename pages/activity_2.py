@@ -30,6 +30,7 @@ def change(x, y, color, direction):
     return img
 
 def main():
+    st.title("Color Mapping")
     x_coordinates = st.number_input("X coordinates:", min_value=0, max_value=2, step=1)
     y_coordinates = st.number_input("Y coordinates:", min_value=0, max_value=2, step=1)
     colorvalue = st.selectbox("Select a Color Value (1-50)", options=list(range(1, 51)))
