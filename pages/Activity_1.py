@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import matplotlib.pyplot as plt
 
-
+st.title("DDA Line/Midpoint")
 def DDALine(x1, y1, x2, y2, color):
     dx = x2 - x1
     dy = y2 - y1
@@ -42,7 +42,7 @@ def DDALine(x1, y1, x2, y2, color):
     st.pyplot(fig)
 
 
-st.title("Braseham Line/Midpoint")
+st.title("Brasenham Line/Midpoint")
 
 def bres_line_mpoint(x1,y1,x2,y2):
     x,y = x1, y1
