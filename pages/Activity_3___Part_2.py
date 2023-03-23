@@ -53,9 +53,8 @@ def main():
         nparr = np.frombuffer(bytes_data, np.uint8)
         img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
     else:
-        st.image(img, use_column_width=True, caption="Original Image")
         img = read_image("flower.jpg")
-        
+        st.image(img, use_column_width=True, caption="Original Image")
     
     st.sidebar.title("Select Transformation")
     transformation = st.sidebar.selectbox("Select Transformation", ("Translation", "Rotation","Scaled","Reflected","Sheared"))
@@ -65,29 +64,24 @@ def main():
         
         
     if (transformation=="Translation"):
-        st.image(translated_img, use_column_width=True, caption="Translated Image")
         translated_img = translation_img(img,x,y)
-        
+        st.image(translated_img, use_column_width=True, caption="Translated Image")
         
     elif (transformation=="Rotation"):
-        st.image(rotated_imgs, use_column_width=True, caption="Rotated Image")
         rotated_imgs = rotation_img(img,x,y)
-        
+        st.image(rotated_imgs, use_column_width=True, caption="Rotated Image")
         
     elif(transformation=="Scaled"):
-        st.image(scaled_img, use_column_width=True, caption="Scaled Image")
         scaled_img = scaling_img(img,x,y)
-        
+        st.image(scaled_img, use_column_width=True, caption="Scaled Image")
         
     elif(transformation=="Reflected"):
-        st.image(reflected_img, use_column_width=True, caption="Reflected Image")
         reflected_img = reflection_img(img,x,y)
-        
+        st.image(reflected_img, use_column_width=True, caption="Reflected Image")
         
     elif(transformation=="Sheared"):
-        st.image(sheared_img, use_column_width=True, caption="Sheared Image")
         sheared_img = shear_img(img,x,y)
-        
+        st.image(sheared_img, use_column_width=True, caption="Sheared Image")
 
 main()
 
