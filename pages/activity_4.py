@@ -49,7 +49,7 @@ init_pyramid = _pyramid_(bottom_center=(0,0,0))
 points_pyramid2 = tf.constant(init_pyramid, dtype=tf.float32)
 counter = 1
 fig1 = plt_basic_object_(init_pyramid, counter)
-st.pyplot(fig1)
+#st.pyplot(fig1)
 
 x = st.slider("Enter for x:", -10, 10, step=1,key='my_slider1')
 y = st.slider("Enter for y:", -10, 10, step=1,key='my_slider2')
@@ -82,7 +82,7 @@ init_heart = _heart_(bottom_center=(0,0,0))
 points_heart = tf.constant(init_heart, dtype=tf.float32)
 counter = 2
 fig3 = plt_basic_object_(init_heart, counter)
-st.pyplot(fig3)
+#st.pyplot(fig3)
 
 x = st.slider("Enter for x:", -10, 10, step=1,key='my_slider4')
 y = st.slider("Enter for y:", -10, 10, step=1,key='my_slider5')
@@ -114,7 +114,7 @@ init_pyramid = _diamond_(bottom_center=(0,0,0))
 points_pyramid = tf.constant(init_pyramid, dtype=tf.float32)
 counter = 3
 fig5=plt_basic_object_(init_pyramid, counter)
-st.pyplot(fig5)
+#st.pyplot(fig5)
 
 x = st.slider("Enter for x:", -10, 10, step=1,key='my_slider7')
 y = st.slider("Enter for y:", -10, 10, step=1,key='my_slider8')
