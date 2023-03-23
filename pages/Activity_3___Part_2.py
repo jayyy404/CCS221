@@ -76,7 +76,7 @@ def main():
         st.image(scaled_img, use_column_width=True, caption="Scaled Image")
         
     elif(transformation=="Reflected"):
-        reflected_img = reflection_img(img)
+        reflected_img = reflection_img(img,x,y)
         st.image(reflected_img, use_column_width=True, caption="Reflected Image")
         
     elif(transformation=="Sheared"):
