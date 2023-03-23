@@ -10,34 +10,34 @@ from PIL import Image
 import matplotlib.pyplot as plt
 
 # functions for modifying the images
-def translation_img(imgs):
+def translation_img(imgs,x,y):
     rows, cols = imgs.shape[:2]
-    m_translation = np.float32([[1, 0, 100], [0, 1, 50]])
+    m_translation = np.float32([[1, 0, x], [0, 1, y]])
     translated_img = cv2.warpAffine(imgs, m_translation, (cols, rows))
     return translated_img
 
-def rotation_img(imgs):
+def rotation_img(imgs,x,y):
     rows, cols = imgs.shape[:2]
-    angle = 10
-    m_rotation = cv2.getRotationMatrix2D((cols/2, rows/2), angle, 1)
+    #angle = 10
+    m_rotation = cv2.getRotationMatrix2D((cols/2, rows/2), x, y)
     rotated_img = cv2.warpAffine(imgs, m_rotation, (cols, rows))
     return rotated_img
 
-def scaling_img(imgs):
+def scaling_img(imgs,x,y):
     rows, cols = imgs.shape[:2]
-    m_scaling = np.float32([[1.5, 0, 0], [0, 1.8, 0]])
+    m_scaling = np.float32([[x, 0, 0], [0, y, 0]])
     scaled_img = cv2.warpAffine(imgs, m_scaling, (int(cols*2), int(rows*2)))
     return scaled_img
 
-def reflection_img(imgs):
+def reflection_img(imgs,x,y):
     rows, cols = imgs.shape[:2]
-    m_reflection = np.float32([[1, 0, 0], [0, -1, rows]])
+    m_reflection = np.float32([[x, 0, 0], [0, y, rows]])
     reflected_img = cv2.warpAffine(imgs, m_reflection, (cols, rows))
     return reflected_img
 
-def shear_img(imgs):
+def shear_img(imgs,x,y):
     rows, cols = imgs.shape[:2]
-    m_shearing = np.float32([[1, 0.5, 0], [0, 1, 0], [0, 0, 1]])
+    m_shearing = np.float32([[1, x, 0], [0, y, 0], [0, 0, 1]])
     sheared_img = cv2.warpPerspective(imgs, m_shearing, (int(cols*1.5), int(rows*1.5)))
     return sheared_img
 
@@ -55,62 +55,29 @@ def main():
     else:
         img = read_image("flower.jpg")
     st.image(img, use_column_width=True, caption="Original Image")
+    
+    st.sidebar.title("Select Transformation")
+    transformation = st.sidebar.selectbox("Select Transformation", ("Translation", "Rotation","Scaled","Refelected","Sheared"))
+
+    x1 = st.sidebar.number_input("Enter the Starting point of x:")
+    y1 = st.sidebar.number_input("Enter the Starting point of y:")
         
         
-
-    translated_img = translation_img(img)
-    st.image(translated_img, use_column_width=True, caption="Translated Image")
-
-    rotated_imgs = rotation_img(img)
-    st.image(rotated_imgs, use_column_width=True, caption="Rotated Image")
-
-    scaled_img = scaling_img(img)
-    st.image(scaled_img, use_column_width=True, caption="Scaled Image")
-
-    reflected_img = reflection_img(img)
-    st.image(reflected_img, use_column_width=True, caption="Reflected Image")
-
-    sheared_img = shear_img(img)
-    st.image(sheared_img, use_column_width=True, caption="Sheared Image")
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-#Sets the images on axis with the figure
-      #  fig, axs = plt.subplots(2, 3, figsize=(12, 8))
-       # fig = plt.gcf()
-        #fig.canvas.manager.set_window_title(f"Picture Number {i}")
-        #axs[0, 0].imshow(imgs)
-        #axs[0, 0].set_title("Original Image")
-        #axs[0, 0].axis("off")
-
-        #axs[0, 1].imshow(translated_imgs)
-        #axs[0, 1].set_title("Translated Image")
-        #axs[0, 1].axis("off")
-
-        #axs[0, 2].imshow(rotated_imgs)
-        #axs[0, 2].set_title("Rotated Image")
-        #axs[0, 2].axis("off")
-
-        #axs[1, 0].imshow(scaled_imgs)
-        #axs[1, 0].set_title("Scaled Image")
-        #axs[1, 0].axis("off")
-
-        #axs[1, 1].imshow(reflected_imgs)
-        #axs[1, 1].set_title("Reflected Image")
-        #axs[1, 1].axis("off")
-
-        #axs[1, 2].imshow(sheared_imgs)
-        #axs[1, 2].set_title("Sheared Image")
-        #axs[1, 2].axis("off")
-
-        #plt.show()
+    if (transformation=="Translation"):
+        translated_img = translation_img(img)
+        st.image(translated_img, use_column_width=True, caption="Translated Image")
+    elif (transformation=="Rotation"):
+        rotated_imgs = rotation_img(img)
+        st.image(rotated_imgs, use_column_width=True, caption="Rotated Image")
+    elif(transformation=="Scaled"):
+        scaled_img = scaling_img(img)
+        st.image(scaled_img, use_column_width=True, caption="Scaled Image")
+    elif(transformation=="Reflected"):
+        reflected_img = reflection_img(img)
+        st.image(reflected_img, use_column_width=True, caption="Reflected Image")
+    elif(transformation=="Sheared"):
+        sheared_img = shear_img(img)
+        st.image(sheared_img, use_column_width=True, caption="Sheared Image")
 
 main()
 
