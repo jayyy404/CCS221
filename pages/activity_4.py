@@ -61,6 +61,7 @@ translation = tf.constant([x, y, z], dtype=tf.float32)
 translated_points = points_pyramid2 + translation
 
 fig2 = plt_basic_object_(translated_points.numpy(), counter)
+st.subheader("Pyramid")
 st.pyplot(fig2)
 
 def _heart_(bottom_center = (0, 0, 0)):
@@ -95,6 +96,7 @@ translation = tf.constant([x, y, z], dtype=tf.float32)
 translated_points = points_heart + translation
 
 fig4 = plt_basic_object_(translated_points.numpy(), counter)
+st.subheader("Heart")
 st.pyplot(fig4)
 
 
@@ -129,6 +131,7 @@ translation = tf.constant([x, y, z], dtype=tf.float32)
 translated_points = points_pyramid + translation
 
 fig6 = plt_basic_object_(translated_points.numpy(), counter)
+st.subheader("Diamond")
 st.pyplot(fig6)
 
 def main():
