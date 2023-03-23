@@ -49,11 +49,9 @@ init_pyramid = _pyramid_(bottom_center=(0,0,0))
 points_pyramid2 = tf.constant(init_pyramid, dtype=tf.float32)
 counter = 1
 fig1 = plt_basic_object_(init_pyramid, counter)
-st.pyplot(fig1)
+#st.pyplot(fig1)
 
-x = st.slider("Enter for x:", -10, 10, step=1,key='my_slider1')
-y = st.slider("Enter for y:", -10, 10, step=1,key='my_slider2')
-z = st.slider("Enter for z:", -10, 10, step=1,key='my_slider3')
+
 
 translation = tf.constant([x, y, z], dtype=tf.float32)
 
@@ -82,11 +80,8 @@ init_heart = _heart_(bottom_center=(0,0,0))
 points_heart = tf.constant(init_heart, dtype=tf.float32)
 counter = 2
 fig3 = plt_basic_object_(init_heart, counter)
-st.pyplot(fig3)
+#st.pyplot(fig3)
 
-x = st.slider("Enter for x:", -10, 10, step=1,key='my_slider4')
-y = st.slider("Enter for y:", -10, 10, step=1,key='my_slider5')
-z = st.slider("Enter for z:", -10, 10, step=1,key='my_slider6')
 
 translation = tf.constant([x, y, z], dtype=tf.float32)
 
@@ -114,11 +109,9 @@ init_pyramid = _diamond_(bottom_center=(0,0,0))
 points_pyramid = tf.constant(init_pyramid, dtype=tf.float32)
 counter = 3
 fig5=plt_basic_object_(init_pyramid, counter)
-st.pyplot(fig5)
+#st.pyplot(fig5)
 
-x = st.slider("Enter for x:", -10, 10, step=1,key='my_slider7')
-y = st.slider("Enter for y:", -10, 10, step=1,key='my_slider8')
-z = st.slider("Enter for z:", -10, 10, step=1,key='my_slider9')
+
 
 translation = tf.constant([x, y, z], dtype=tf.float32)
 
@@ -127,3 +120,20 @@ translated_points = points_pyramid + translation
 fig6 = plt_basic_object_(translated_points.numpy(), counter)
 st.pyplot(fig6)
 
+def main():
+    st.sidebar.title("Select 3D objects")
+    choice = st.sidebar.selectbox("Select 3D Objects", ("Pyramid", "Heart","Diamond"))
+
+    x = st.sidebar.slider("Enter for x:", -10, 10, step=1,key='my_slider')
+    y = st.sidebar.slider("Enter for y:", -10, 10, step=1,key='my_slider')
+    z = st.sidebar.slider("Enter for z:", -10, 10, step=1,key='my_slider')
+    
+    if (choice=="Pyramid"):
+        _pyramid_(bottom_center=(0, 0, 0))
+        
+    elif(choice=="Heart"):
+        _heart_(bottom_center = (0, 0, 0))
+        
+    elif(choice=="Diamond"):
+        _diamond_(bottom_center=(0, 0, 0))
+    
