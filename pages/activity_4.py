@@ -53,12 +53,7 @@ fig1 = plt_basic_object_(init_pyramid, counter)
 
 
 
-translation = tf.constant([x, y, z], dtype=tf.float32)
 
-translated_points = points_pyramid2 + translation
-
-fig2 = plt_basic_object_(translated_points.numpy(), counter)
-st.pyplot(fig2)
 
 def _heart_(bottom_center = (0, 0, 0)):
     bottom_center = np.array(bottom_center)
@@ -108,12 +103,7 @@ fig5=plt_basic_object_(init_pyramid, counter)
 
 
 
-translation = tf.constant([x, y, z], dtype=tf.float32)
 
-translated_points = points_pyramid + translation
-
-fig6 = plt_basic_object_(translated_points.numpy(), counter)
-st.pyplot(fig6)
 
 def main():
     st.sidebar.title("Select 3D objects")
@@ -126,13 +116,27 @@ def main():
     if (choice=="Pyramid"):
         _pyramid_(bottom_center=(0, 0, 0))
         translation = tf.constant([x, y, z], dtype=tf.float32)
-        translated_points = points_heart + translation
-        fig4 = plt_basic_object_(translated_points.numpy(), counter)
-        st.pyplot(fig4)
+
+        translated_points = points_pyramid2 + translation
+
+        fig2 = plt_basic_object_(translated_points.numpy(), counter)
+        st.pyplot(fig2)
         
     elif(choice=="Heart"):
         _heart_(bottom_center = (0, 0, 0))
+        translation = tf.constant([x, y, z], dtype=tf.float32)
+
+        translated_points = points_heart + translation
+
+        fig4 = plt_basic_object_(translated_points.numpy(), counter)
+        st.pyplot(fig4)
         
     elif(choice=="Diamond"):
         _diamond_(bottom_center=(0, 0, 0))
+        translation = tf.constant([x, y, z], dtype=tf.float32)
+
+        translated_points = points_pyramid + translation
+
+        fig6 = plt_basic_object_(translated_points.numpy(), counter)
+        st.pyplot(fig6)
     
