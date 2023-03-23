@@ -12,7 +12,7 @@ from matplotlib import cm
 from scipy.spatial import Delaunay
 
 st.title("3D TRANSFORMATION")
-def plt_basic_object_(points, counter):
+def plt_basic_object_(points):
     
     tri = Delaunay(points).convex_hull
 
