@@ -106,7 +106,7 @@ if (points=="Pyramid"):
 
     translated_points = points_pyramid2 + translation
 
-    fig2 = plt_basic_object_(translated_points.numpy(), counter)
+    fig2 = plt_basic_object_(translated_points.numpy())
     st.subheader("Pyramid")
     st.pyplot(fig2)
     
@@ -120,7 +120,7 @@ elif(points=="Heart"):
 
     translated_points = points_heart + translation
 
-    fig4 = plt_basic_object_(translated_points.numpy(), counter)
+    fig4 = plt_basic_object_(translated_points.numpy())
     st.subheader("Heart")
     st.pyplot(fig4)
     
@@ -135,7 +135,7 @@ elif(points=="Diamond"):
 
     translated_points = points_pyramid + translation
 
-    fig6 = plt_basic_object_(translated_points.numpy(), counter)
+    fig6 = plt_basic_object_(translated_points.numpy())
     st.subheader("Diamond")
     st.pyplot(fig6)
     
