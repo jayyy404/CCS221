@@ -53,11 +53,11 @@ def scaling_img(img,x,y):
 
 
 def reflection_img(img,x,y):
-    x, y = img.shape[:2]
-    m_reflection_ =np.float32([[1,0,0],
-                          [0,-1,x+y],
+    rows, columns = img.shape[:2]
+    m_reflection_ =np.float32([[x,0,0],
+                          [0,y,rows],
                           [0,0,1]])
-    reflected_img_ =cv2.warpPerspective(img,m_reflection_,(int(y),int (x)))
+    reflected_img_ =cv2.warpPerspective(img,m_reflection_,(int(columns),int (rows)))
     return reflected_img_
 
 
