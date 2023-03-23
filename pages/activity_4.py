@@ -23,12 +23,6 @@ def plt_basic_object_(points, counter):
     ax.set_xlim3d(-10, 10)
     ax.set_ylim3d(-10, 10)
     ax.set_zlim3d(-10, 10)
-    if (counter == 1):
-        plt.title("Pyramid")
-    elif (counter == 2):
-        plt.title("Heart")
-    elif (counter == 3):
-        plt.title("Diamond")
 
     return fig
 
@@ -47,7 +41,6 @@ def _pyramid_(bottom_center=(0, 0, 0)):
 
 init_pyramid = _pyramid_(bottom_center=(0,0,0))
 points_pyramid2 = tf.constant(init_pyramid, dtype=tf.float32)
-counter = 1
 fig1 = plt_basic_object_(init_pyramid, counter)
 #st.pyplot(fig1)
 
@@ -71,7 +64,7 @@ def _heart_(bottom_center = (0, 0, 0)):
 
 init_heart = _heart_(bottom_center=(0,0,0))
 points_heart = tf.constant(init_heart, dtype=tf.float32)
-counter = 2
+
 fig3 = plt_basic_object_(init_heart, counter)
 #st.pyplot(fig3)
 
@@ -93,7 +86,7 @@ def _diamond_(bottom_center=(0, 0, 0)):             #fucntion for diamond shape
 
 init_pyramid = _diamond_(bottom_center=(0,0,0))
 points_pyramid = tf.constant(init_pyramid, dtype=tf.float32)
-counter = 3
+
 fig5=plt_basic_object_(init_pyramid, counter)
 #st.pyplot(fig5)
 
