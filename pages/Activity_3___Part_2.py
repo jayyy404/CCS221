@@ -57,7 +57,7 @@ def main():
     st.image(img, use_column_width=True, caption="Original Image")
     
     st.sidebar.title("Select Transformation")
-    transformation = st.sidebar.selectbox("Select Transformation", ("Translation", "Rotation","Scaled","Refelected","Sheared"))
+    transformation = st.sidebar.selectbox("Select Transformation", ("Translation", "Rotation","Scaled","Reflected","Sheared"))
 
     x = st.sidebar.number_input("Enter the value of x:")
     y = st.sidebar.number_input("Enter the value of y:")
