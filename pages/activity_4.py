@@ -41,7 +41,7 @@ def _pyramid_(bottom_center=(0, 0, 0)):
 
 init_pyramid = _pyramid_(bottom_center=(0,0,0))
 points_pyramid2 = tf.constant(init_pyramid, dtype=tf.float32)
-fig1 = plt_basic_object_(init_pyramid, counter)
+fig1 = plt_basic_object_(init_pyramid)
 #st.pyplot(fig1)
 
 
@@ -65,7 +65,7 @@ def _heart_(bottom_center = (0, 0, 0)):
 init_heart = _heart_(bottom_center=(0,0,0))
 points_heart = tf.constant(init_heart, dtype=tf.float32)
 
-fig3 = plt_basic_object_(init_heart, counter)
+fig3 = plt_basic_object_(init_heart)
 #st.pyplot(fig3)
 
 
@@ -87,7 +87,7 @@ def _diamond_(bottom_center=(0, 0, 0)):             #fucntion for diamond shape
 init_pyramid = _diamond_(bottom_center=(0,0,0))
 points_pyramid = tf.constant(init_pyramid, dtype=tf.float32)
 
-fig5=plt_basic_object_(init_pyramid, counter)
+fig5=plt_basic_object_(init_pyramid)
 #st.pyplot(fig5)
 
 
