@@ -51,18 +51,7 @@ counter = 1
 fig1 = plt_basic_object_(init_pyramid, counter)
 #st.pyplot(fig1)
 
-st.sidebar.title("Points for Pyramid")
-x = st.sidebar.slider("Enter for x:", -10, 10, step=1,key='my_slider1')
-y = st.sidebar.slider("Enter for y:", -10, 10, step=1,key='my_slider2')
-z = st.sidebar.slider("Enter for z:", -10, 10, step=1,key='my_slider3')
 
-translation = tf.constant([x, y, z], dtype=tf.float32)
-
-translated_points = points_pyramid2 + translation
-
-fig2 = plt_basic_object_(translated_points.numpy(), counter)
-st.subheader("Pyramid")
-st.pyplot(fig2)
 
 def _heart_(bottom_center = (0, 0, 0)):
     bottom_center = np.array(bottom_center)
@@ -134,11 +123,21 @@ fig6 = plt_basic_object_(translated_points.numpy(), counter)
 st.subheader("Diamond")
 st.pyplot(fig6)
 
-def main():
-    st.sidebar.title("Select 3D objects")
-    choice = st.sidebar.selectbox("Select 3D Objects", ("Pyramid", "Heart","Diamond"))
 
-    x = st.sidebar.slider("Enter for x:", -10, 10, step=1,key='my_slider7')
-    y = st.sidebar.slider("Enter for y:", -10, 10, step=1,key='my_slider8')
-    z = st.sidebar.slider("Enter for z:", -10, 10, step=1,key='my_slider9')
+st.sidebar.title("Select 3D objects")
+points = st.sidebar.selectbox("Select 3D Objects", ("Pyramid", "Heart","Diamond"))
+
+if (points=="Pyramid"):
+    st.sidebar.title("Points for Pyramid")
+    x = st.sidebar.slider("Enter for x:", -10, 10, step=1,key='my_slider1')
+    y = st.sidebar.slider("Enter for y:", -10, 10, step=1,key='my_slider2')
+    z = st.sidebar.slider("Enter for z:", -10, 10, step=1,key='my_slider3')
+
+    translation = tf.constant([x, y, z], dtype=tf.float32)
+
+    translated_points = points_pyramid2 + translation
+
+    fig2 = plt_basic_object_(translated_points.numpy(), counter)
+    st.subheader("Pyramid")
+    st.pyplot(fig2)
     
