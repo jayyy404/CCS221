@@ -75,18 +75,6 @@ counter = 2
 fig3 = plt_basic_object_(init_heart, counter)
 #st.pyplot(fig3)
 
-st.sidebar.title("Points for Heart")
-x = st.sidebar.slider("Enter for x:", -10, 10, step=1,key='my_slider4')
-y = st.sidebar.slider("Enter for y:", -10, 10, step=1,key='my_slider5')
-z = st.sidebar.slider("Enter for z:", -10, 10, step=1,key='my_slider6')
-
-translation = tf.constant([x, y, z], dtype=tf.float32)
-
-translated_points = points_heart + translation
-
-fig4 = plt_basic_object_(translated_points.numpy(), counter)
-st.subheader("Heart")
-st.pyplot(fig4)
 
 
 
@@ -109,19 +97,7 @@ counter = 3
 fig5=plt_basic_object_(init_pyramid, counter)
 #st.pyplot(fig5)
 
-st.sidebar.title("Points for Diamond")
 
-x = st.sidebar.slider("Enter for x:", -10, 10, step=1,key='my_slider7')
-y = st.sidebar.slider("Enter for y:", -10, 10, step=1,key='my_slider8')
-z = st.sidebar.slider("Enter for z:", -10, 10, step=1,key='my_slider9')
-
-translation = tf.constant([x, y, z], dtype=tf.float32)
-
-translated_points = points_pyramid + translation
-
-fig6 = plt_basic_object_(translated_points.numpy(), counter)
-st.subheader("Diamond")
-st.pyplot(fig6)
 
 
 st.sidebar.title("Select 3D objects")
@@ -140,4 +116,34 @@ if (points=="Pyramid"):
     fig2 = plt_basic_object_(translated_points.numpy(), counter)
     st.subheader("Pyramid")
     st.pyplot(fig2)
+    
+elif(points=="Heart"):
+    st.sidebar.title("Points for Heart")
+    x = st.sidebar.slider("Enter for x:", -10, 10, step=1,key='my_slider4')
+    y = st.sidebar.slider("Enter for y:", -10, 10, step=1,key='my_slider5')
+    z = st.sidebar.slider("Enter for z:", -10, 10, step=1,key='my_slider6')
+
+    translation = tf.constant([x, y, z], dtype=tf.float32)
+
+    translated_points = points_heart + translation
+
+    fig4 = plt_basic_object_(translated_points.numpy(), counter)
+    st.subheader("Heart")
+    st.pyplot(fig4)
+    
+elif(points=="Diamond"):
+    st.sidebar.title("Points for Diamond")
+
+    x = st.sidebar.slider("Enter for x:", -10, 10, step=1,key='my_slider7')
+    y = st.sidebar.slider("Enter for y:", -10, 10, step=1,key='my_slider8')
+    z = st.sidebar.slider("Enter for z:", -10, 10, step=1,key='my_slider9')
+
+    translation = tf.constant([x, y, z], dtype=tf.float32)
+
+    translated_points = points_pyramid + translation
+
+    fig6 = plt_basic_object_(translated_points.numpy(), counter)
+    st.subheader("Diamond")
+    st.pyplot(fig6)
+    
     
