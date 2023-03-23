@@ -83,12 +83,7 @@ fig3 = plt_basic_object_(init_heart, counter)
 #st.pyplot(fig3)
 
 
-translation = tf.constant([x, y, z], dtype=tf.float32)
 
-translated_points = points_heart + translation
-
-fig4 = plt_basic_object_(translated_points.numpy(), counter)
-st.pyplot(fig4)
 
 
 
@@ -130,6 +125,10 @@ def main():
     
     if (choice=="Pyramid"):
         _pyramid_(bottom_center=(0, 0, 0))
+        translation = tf.constant([x, y, z], dtype=tf.float32)
+        translated_points = points_heart + translation
+        fig4 = plt_basic_object_(translated_points.numpy(), counter)
+        st.pyplot(fig4)
         
     elif(choice=="Heart"):
         _heart_(bottom_center = (0, 0, 0))
