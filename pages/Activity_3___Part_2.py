@@ -59,24 +59,28 @@ def main():
     st.sidebar.title("Select Transformation")
     transformation = st.sidebar.selectbox("Select Transformation", ("Translation", "Rotation","Scaled","Refelected","Sheared"))
 
-    x1 = st.sidebar.number_input("Enter the Starting point of x:")
-    y1 = st.sidebar.number_input("Enter the Starting point of y:")
+    x = st.sidebar.number_input("Enter the value of x:")
+    y = st.sidebar.number_input("Enter the value of y:")
         
         
     if (transformation=="Translation"):
-        translated_img = translation_img(img)
+        translated_img = translation_img(img,x,y)
         st.image(translated_img, use_column_width=True, caption="Translated Image")
+        
     elif (transformation=="Rotation"):
-        rotated_imgs = rotation_img(img)
+        rotated_imgs = rotation_img(img,x,y)
         st.image(rotated_imgs, use_column_width=True, caption="Rotated Image")
+        
     elif(transformation=="Scaled"):
-        scaled_img = scaling_img(img)
+        scaled_img = scaling_img(img,x,y)
         st.image(scaled_img, use_column_width=True, caption="Scaled Image")
+        
     elif(transformation=="Reflected"):
         reflected_img = reflection_img(img)
         st.image(reflected_img, use_column_width=True, caption="Reflected Image")
+        
     elif(transformation=="Sheared"):
-        sheared_img = shear_img(img)
+        sheared_img = shear_img(img,x,y)
         st.image(sheared_img, use_column_width=True, caption="Sheared Image")
 
 main()
