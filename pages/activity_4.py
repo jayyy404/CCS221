@@ -111,8 +111,8 @@ if (points=="Pyramid"):
     st.pyplot(fig1)
     
     scale_amount =tf.constant([x,y,z], dtype=tf.float32)
-    translated_points = points_pyramid2 + scale_amount
-    fig2 = plt_basic_object_(translated_points.numpy())
+    scaled_points = points_pyramid2 + scale_amount
+    fig2 = plt_basic_object_(scaled_points.numpy())
     st.subheader("Pyramid")
     st.pyplot(fig2)
     
