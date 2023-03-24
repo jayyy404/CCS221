@@ -106,9 +106,18 @@ if (points=="Pyramid"):
 
     translated_points = points_pyramid2 + translation
 
+    fig1 = plt_basic_object_(translated_points.numpy())
+    st.subheader("Pyramid")
+    st.pyplot(fig1)
+    
+    scale_amount =tf.constant([x,y,z], dtype=tf.float32)
+    translated_points = points_pyramid2 + scale_amount
     fig2 = plt_basic_object_(translated_points.numpy())
     st.subheader("Pyramid")
     st.pyplot(fig2)
+    
+    
+    
     
 elif(points=="Heart"):
     st.sidebar.title("Points for Heart")
