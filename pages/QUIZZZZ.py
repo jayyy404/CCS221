@@ -47,9 +47,11 @@ def main():
         modified_imgs.append(new_translated(img, bx_old, by_old, tx, ty,x,y))
 
     # Display images using st.pyplot()
+    st.subheader("Original")
+    st.image(translated_imgs)
     for i in range(5):
         st.subheader(f"Original {i+1}")
-        st.image(translated_imgs[i])
+        
         st.subheader(f"# {i+1}")
         st.image(modified_imgs[i])
 
