@@ -110,11 +110,7 @@ if (points=="Pyramid"):
     st.subheader("Pyramid")
     st.pyplot(fig1)
     
-   
-    
-    
-    
-    
+
 elif(points=="Heart"):
     st.sidebar.title("Points for Heart")
     x = st.sidebar.slider("Enter for x:", -10, 10, step=1,key='my_slider4')
@@ -128,12 +124,6 @@ elif(points=="Heart"):
     fig4 = plt_basic_object_(translated_points.numpy())
     st.subheader("Heart")
     st.pyplot(fig4)
-    
-    scale_amount =tf.constant([x,y,z], dtype=tf.float32)
-    scaled_points = points_heart + scale_amount
-    fig2 = plt_basic_object_(scaled_points.numpy())
-    st.subheader("Pyramid")
-    st.pyplot(fig2)
     
 elif(points=="Diamond"):
     st.sidebar.title("Points for Diamond")
