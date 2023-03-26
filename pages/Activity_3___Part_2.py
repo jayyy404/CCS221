@@ -54,7 +54,7 @@ def main():
         img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
 
         
-    st.image(img, use_column_width=True, caption="Original Image")
+
     
     st.sidebar.title("Select Transformation")
     transformation = st.sidebar.selectbox("Select Transformation", ("Translation", "Rotation","Scaled","Reflected","Sheared"))
