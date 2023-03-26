@@ -72,7 +72,8 @@ points_heart = tf.constant(init_heart, dtype=tf.float32)
 fig3 = plt_basic_object_(init_heart)
 #st.pyplot(fig3)
 
-
+def scaled_pyramid(points,amount):
+    return tf.multiply(points,amount)
 
 
 def _diamond_(bottom_center=(0, 0, 0)):             #fucntion for diamond shape
@@ -115,8 +116,10 @@ if (points=="Pyramid"):
     st.pyplot(fig1)
     
     scaled=tf.constant([x, y, z], dtype=tf.float32)
-    scaled_pyramid =points_pyramid2 + scaled
-    fig2= plt_basic_object_(scaled_pyramid.numpy())
+    scaled_obj=scaled_pyramid(points, translated_points)
+    
+    with tf.compat.v1.Session() as session:
+        fig2 =session.run(scaled_obj)
     
   
     st.pyplot(fig2)
