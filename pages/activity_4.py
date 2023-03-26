@@ -46,6 +46,10 @@ fig1 = plt_basic_object_(init_pyramid)
 
 
 
+
+
+
+
 def _heart_(bottom_center = (0, 0, 0)):
     bottom_center = np.array(bottom_center)
     points = np.vstack([
@@ -109,6 +113,14 @@ if (points=="Pyramid"):
     fig1 = plt_basic_object_(translated_points.numpy())
     st.subheader("Pyramid")
     st.pyplot(fig1)
+    
+    scaled=tf.constant([x, y, z], dtype=tf.float32)
+    scaled_pyramid =points_pyramid2 + scaled
+    plt_basic_object_(scaled_pyramid.numpy())
+    
+    with tf.compat.v1.Session() as session:
+        scaled_obj=session.run(scaled_pyramid)
+    st.pyplot(scaled_obj)
     
 
 elif(points=="Heart"):
