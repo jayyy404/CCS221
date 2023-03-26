@@ -116,11 +116,10 @@ if (points=="Pyramid"):
     
     scaled=tf.constant([x, y, z], dtype=tf.float32)
     scaled_pyramid =points_pyramid2 + scaled
-    plt_basic_object_(scaled_pyramid.numpy())
+    fig2= plt_basic_object_(scaled_pyramid.numpy())
     
-    with tf.compat.v1.Session() as session:
-        scaled_obj=session.run(scaled_pyramid)
-    st.pyplot(scaled_obj)
+  
+    st.pyplot(fig2)
     
 
 elif(points=="Heart"):
